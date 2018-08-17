@@ -1,2 +1,3 @@
 name: Germán Rosati, sociologist
 markdown: kramdown
+permalink: /blog/:year/:month/:day/:title
