@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "First Post / Primer posteo"
+title: "First Post"
 date: 2018-08-17
 ---
 
