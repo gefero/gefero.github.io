@@ -24,7 +24,7 @@ Así, a través de las palabras podríamos tener alguna noción de los temas que
 Dicho esto, encaramos un modelo bastante simple: una bella y parsimoniosa regresión logística:
 
 $$
-P(G = 1 | X_{1}, X_{2}, ..., X_{p} = \frac{e^{\beta_{0} + \beta_{1}X_{1},\beta_{2}X_{2}, ..., \beta_{p}X_{p}}}{1+e^{\beta_{0} + \beta_{1}X_{1},\beta_{2}X_{2}, ..., \beta_{p}X_{p}}})
+P(G = 1 | X_{1}, X_{2}, ..., X_{p}) = \frac{e^{\beta_{0} + \beta_{1}X_{1},\beta_{2}X_{2}, ..., \beta_{p}X_{p}}}{1+e^{\beta_{0} + \beta_{1}X_{1},\beta_{2}X_{2}, ..., \beta_{p}X_{p}}}
 $$
 
 La ventaja de este modelito, además de que corre bastante rápido, es que cada uno de los $$\beta_{p}$$ nos va a permitir
