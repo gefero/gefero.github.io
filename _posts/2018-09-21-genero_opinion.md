@@ -2,7 +2,7 @@
 
 layout: post
 title: "Género y periodismo... un ejercicio de text mining"
-date: 2018-09-17
+date: 2018-09-21
 mathjax: true
 
 ---
@@ -11,8 +11,8 @@ Hace poco un tuitero (que permanecerá anónimo) nos pidió "hacer algo lindo y 
 
 Nostros trabajamos con dos:
 
-* el texto del título de la nota
-* el género (en este caso reducido a la dicotomía "masculino-femeno") de le autore
+1) el texto del título de la nota
+2) el género (en este caso reducido a la dicotomía "masculino-femeno") de le autore
 
 La idea era ver si había algún tipo de relación entre el tipo de temas que escriben autores de cada genero. Luego de probar algunos modelos de detección de tópicos (que no anduvieron muy bien... probablemente por la escasa información que proveían los títulos, generalmente más bien cortos) encaramos el problema de otra forma más bien reduccionista:
 
@@ -27,8 +27,13 @@ $$
 P(G = 1 | X_{1}, X_{2}, ..., X_{p}) = \frac{e^{\beta_{0} + \beta_{1}X_{1},\beta_{2}X_{2}, ..., \beta_{p}X_{p}}}{1+e^{\beta_{0} + \beta_{1}X_{1},\beta_{2}X_{2}, ..., \beta_{p}X_{p}}}
 $$
 
-La ventaja de este modelito, además de que corre bastante rápido, es que cada uno de los $$\beta_{p}$$ nos va a permitir
+Hay dos características importantes en el uso de este modelito (respecto a otros más complejos):
 
-''' python
+1) corre bastante rápido -es bastante "lineal"-
+2) cada uno de los $$\beta_{p}$$ tienen la interpertación tradicional en una regresión logística.
+
+En efecto, el valor y el signo de los $$\beta$$ nos va a permitir evaluar el efecto que tiene sobre la probabilidad de
+
+```python
 import pandas as pd
-'''
+```
