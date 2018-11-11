@@ -14,7 +14,7 @@ La idea de este post es simple: generar una red neuronal que pueda generar de fo
 Solamente por citar algunos -se pueden encontrar muchas más solamente googleando "LSTM text generation":
 
 - Un primer [ejercicio con Keras](https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/)
-- [](https://medium.freecodecamp.org/applied-introduction-to-lstms-for-text-generation-380158b29fb3)
+- Un segundo [ejercicio](https://medium.freecodecamp.org/applied-introduction-to-lstms-for-text-generation-380158b29fb3)
 - Un [generador de letras](https://medium.com/coinmonks/word-level-lstm-text-generator-creating-automatic-song-lyrics-with-neural-networks-b8a1617104fb)
 - Otro [generador de poemas](https://www.analyticsvidhya.com/blog/2018/03/text-generation-using-python-nlp/) pero con una linda explicación de algunas estructuras de datos.
 
@@ -29,11 +29,11 @@ De hecho, lo que vamos a buscar es tratar de predecir cada cararcter de una pala
 
 Vamos a utilizar una arquitectura de red que consta de las siguientes capas:
 
-1. LSTM_1 de 128 neuronas
-2. Dropout_1 del 50% -para regularizar-
-3. LSTM_2 de 128 neuronas
-4. Dropout_2 del 50% -para regularizar-
-5. Fully Connected, con función de activación 'softmax'
+-LSTM_1 de 128 neuronas
+-Dropout_1 del 50% -para regularizar-
+-LSTM_2 de 128 neuronas
+-Dropout_2 del 50% -para regularizar-
+-Fully Connected, con función de activación 'softmax'
 
 El optimizador es RMSprop con una learning rate de 0.005.
 
@@ -97,7 +97,7 @@ Vamos a meternos en detalle sobre el proceso de entrenamiento (que al momento de
 
 Veamos como evolucionó la accuracy del modelo:
 
-![](/_files/LSTM_tango_acc.png)
+![](LSTM_tango_acc.png)
 
 Pareciera que se ve una tendencia a la baja, aunque con varios picos. De hecho, al volver a chequear un rato después había habido una subida durante la iteración 12, que retomo la tendencia a la baja. Así que, por ese lado, pareciera que la cosa va bien.
 
