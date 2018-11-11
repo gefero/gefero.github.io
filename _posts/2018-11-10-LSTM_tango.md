@@ -48,22 +48,22 @@ En este post queríamos centrar la mirada en la estructura de datos que vamos a 
 
 Vale la cita para Chollet (autor de [este otro librazo]()) y del framework [Keras](https://keras.io/), del cual tomamos -y fuimos modificando- parte del [código](https://github.com/keras-team/keras/blob/master/examples/lstm_text_generation.py).
 
-´´´python
+```python
 path = './gdrive/My Drive/Notebooks/RNN Tango/data/V2letras.txt'
 with open(path, encoding='utf-8') as f:
     text_orig = f.read().lower()
-´´´
+```
 
 El archivo de input, entonces, es básicamente un gran string.  Tenemos que formatearlo para que pueda ser un insumo a la red. Lo primero que tenemos que generar es un mapeo de cada caracter a un entero. Es decir, codificar cada uno de los 39 caracteres que se combinan para configurar los 5MB de texto a un entero entre 0 y 39. Y luego un diccionario que revierta esta codificación, es decir, que nos permita ir de los códigos a los caracteres.
 
-'''python
+```python
 print('corpus length:', len(text))
 
 chars = sorted(list(set(text)))
 print('total chars:', len(chars))
 char_indices = dict((c, i) for i, c in enumerate(chars))
 indices_char = dict((i, c) for i, c in enumerate(chars))
-'''
+```
 
 Ahora bien, lo que vamos a hacer es generar dos objetos a partir de este bloque de texto:
 
@@ -72,7 +72,7 @@ Ahora bien, lo que vamos a hacer es generar dos objetos a partir de este bloque 
 
 Es decir, que vamos a querer predecir el caracter 61 a partir de los 60 previos.
 
-'''python
+```python
 maxlen = 40
 step = 3
 sentences = []
@@ -89,7 +89,7 @@ for i, sentence in enumerate(sentences):
     for t, char in enumerate(sentence):
         x[i, t, char_indices[char]] = 1
     y[i, char_indices[next_chars[i]]] = 1
-'''
+```
 
 ## Algunos resultados preliminares
 
@@ -103,7 +103,7 @@ Pareciera que se ve una tendencia a la baja, aunque con varios picos. De hecho, 
 
 Veamos algunos outputs (y con esto cerramos el post) en diferentes estadíos del aprendizaje. Los versos que estan entre comillas son los "generadores": están extraidos aleatoriamente de los tokes originales. La idea es que funcionen como una primera secuencia de caracteres para que la red pueda ir prediciendo desde ahí el resto. Hemos generado 400 caracteres a partir de estos generadores:
 
-##### Epoch 0
+#### Epoch 0
 
 > ----- Generating with seed: "[s]eguidor  por la sangre de mi viejo sali"
 eguidor
@@ -127,7 +127,7 @@ eguidor
  y en la tango en la mar
  no es el
 
-##### Epoch 11
+#### Epoch 11
 > ----- Generating with seed: " y santa fe
  y asi como en pleno mate
 "
@@ -153,7 +153,7 @@ eguidor
  y a la para de la vi
 
 
-##### Epoch 15
+#### Epoch 15
 > ----- Generating with seed: " tuco paz
  sera porque me acune
  en tu"
