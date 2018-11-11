@@ -48,11 +48,11 @@ En este post queríamos centrar la mirada en la estructura de datos que vamos a 
 
 Vale la cita para Chollet (autor de [este otro librazo]()) y del framework [Keras](https://keras.io/), del cual tomamos -y fuimos modificando- parte del [código](https://github.com/keras-team/keras/blob/master/examples/lstm_text_generation.py).
 
-'''python
+´´´python
 path = './gdrive/My Drive/Notebooks/RNN Tango/data/V2letras.txt'
 with open(path, encoding='utf-8') as f:
     text_orig = f.read().lower()
-'''
+´´´
 
 El archivo de input, entonces, es básicamente un gran string.  Tenemos que formatearlo para que pueda ser un insumo a la red. Lo primero que tenemos que generar es un mapeo de cada caracter a un entero. Es decir, codificar cada uno de los 39 caracteres que se combinan para configurar los 5MB de texto a un entero entre 0 y 39. Y luego un diccionario que revierta esta codificación, es decir, que nos permita ir de los códigos a los caracteres.
 
