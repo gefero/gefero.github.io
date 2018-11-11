@@ -96,7 +96,7 @@ for i, sentence in enumerate(sentences):
 Vamos a meternos en detalle sobre el proceso de entrenamiento (que al momento de redactar este episodio iba por la iteración 20, aproximadamente, de 60, luego de aproximadamente 5 horas de entrenamiento). No obstante podemos ver algunos outputs (y con esto cerramos el post) en diferentes estadíos del aprendizaje.
 
 
-<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/acc.png" alt="acc" title="Accuracy" height="42" width="42">
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/acc.png" alt="acc" title="Accuracy" height="126" width="210">
 
 Los versos que estan entre comillas son los "generadores": están extraidos aleatoriamente de los tokes originales. La idea es que funcionen como una primera secuencia de caracteres para que la red pueda ir prediciendo desde ahí el resto. Hemos generado 400 caracteres a partir de estos generadores:
 
