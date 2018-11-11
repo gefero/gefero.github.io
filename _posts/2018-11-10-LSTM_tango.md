@@ -97,7 +97,7 @@ Vamos a meternos en detalle sobre el proceso de entrenamiento (que al momento de
 
 Veamos como evolucionó la accuracy del modelo:
 
-![](_files/LSTM_tango_acc.png)
+![](/_files/LSTM_tango_acc.png)
 
 Pareciera que se ve una tendencia a la baja, aunque con varios picos. De hecho, al volver a chequear un rato después había habido una subida durante la iteración 12, que retomo la tendencia a la baja. Así que, por ese lado, pareciera que la cosa va bien.
 
