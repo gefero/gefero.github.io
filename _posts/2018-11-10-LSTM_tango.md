@@ -4,7 +4,7 @@ layout: post
 title: "Generando letras de tango automáticamente. Episodio 1."
 date: 2018-11-10
 mathjax: true
-
+comments: true
 ---
 
 ## El problema
@@ -99,7 +99,7 @@ Los versos que estan entre comillas son los "generadores": están extraidos alea
 
 ### Epoch 0
 
-> ----- Generating with seed: "[s]eguidor  por la sangre de mi viejo sali"
+ ----- Generating with seed: "[s]eguidor  por la sangre de mi viejo sali"
 eguidor
  por la sangre de mi viejo salis
  se para ma mas al canta
@@ -122,9 +122,7 @@ eguidor
  no es el
 
 ### Epoch 11
-> ----- Generating with seed: " y santa fe
- y asi como en pleno mate
-"
+ ----- Generating with seed: " y santa fe y asi como en pleno mate"
  y santa fe
  y asi como en pleno mate
  de la cara mi amor
@@ -148,9 +146,7 @@ eguidor
 
 
 ### Epoch 15
-> ----- Generating with seed: " tuco paz
- sera porque me acune
- en tu"
+ ----- Generating with seed: " tuco paz  sera porque me acune en tu"
  tuco paz
  sera porque me acune
  en tu corazon
