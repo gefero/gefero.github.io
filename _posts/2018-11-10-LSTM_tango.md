@@ -93,17 +93,11 @@ for i, sentence in enumerate(sentences):
 
 ## Algunos resultados preliminares
 
-Vamos a meternos en detalle sobre el proceso de entrenamiento (que al momento de redactar este episodio iba por la iteración 20, aproximadamente, de 60, luego de aproximadamente 5 horas de entrenamiento). No obstante podemos ver algunos resultados interesantes.
+Vamos a meternos en detalle sobre el proceso de entrenamiento (que al momento de redactar este episodio iba por la iteración 20, aproximadamente, de 60, luego de aproximadamente 5 horas de entrenamiento). No obstante podemos ver algunos outputs (y con esto cerramos el post) en diferentes estadíos del aprendizaje.
 
-Veamos como evolucionó la accuracy del modelo:
+Los versos que estan entre comillas son los "generadores": están extraidos aleatoriamente de los tokes originales. La idea es que funcionen como una primera secuencia de caracteres para que la red pueda ir prediciendo desde ahí el resto. Hemos generado 400 caracteres a partir de estos generadores:
 
-![accuracy](/blog/2018/11/10/_images/LSTM_tango_acc.png)
-
-Pareciera que se ve una tendencia a la baja, aunque con varios picos. De hecho, al volver a chequear un rato después había habido una subida durante la iteración 12, que retomo la tendencia a la baja. Así que, por ese lado, pareciera que la cosa va bien.
-
-Veamos algunos outputs (y con esto cerramos el post) en diferentes estadíos del aprendizaje. Los versos que estan entre comillas son los "generadores": están extraidos aleatoriamente de los tokes originales. La idea es que funcionen como una primera secuencia de caracteres para que la red pueda ir prediciendo desde ahí el resto. Hemos generado 400 caracteres a partir de estos generadores:
-
-#### Epoch 0
+### Epoch 0
 
 > ----- Generating with seed: "[s]eguidor  por la sangre de mi viejo sali"
 eguidor
@@ -127,7 +121,7 @@ eguidor
  y en la tango en la mar
  no es el
 
-#### Epoch 11
+### Epoch 11
 > ----- Generating with seed: " y santa fe
  y asi como en pleno mate
 "
@@ -153,7 +147,7 @@ eguidor
  y a la para de la vi
 
 
-#### Epoch 15
+### Epoch 15
 > ----- Generating with seed: " tuco paz
  sera porque me acune
  en tu"
