@@ -7,7 +7,7 @@ mathjax: true
 
 ---
 
-## El problema...
+## El problema
 
 La idea de este post es simple: generar una red neuronal que pueda generar de forma (casi) autónoma letras de tango. Nada extremadamente innovador. Hay toneladas de intentos (con diferente grado de éxito) de entrenar computadoras para que generen texto de forma automática.
 
@@ -97,11 +97,11 @@ Vamos a meternos en detalle sobre el proceso de entrenamiento (que al momento de
 
 Veamos como evolucionó la accuracy del modelo:
 
-![](./_files/LSTM_tango_acc.png)
+![](_files/LSTM_tango_acc)
 
 Pareciera que se ve una tendencia a la baja, aunque con varios picos. De hecho, al volver a chequear un rato después había habido una subida durante la iteración 12, que retomo la tendencia a la baja. Así que, por ese lado, pareciera que la cosa va bien.
 
-Veamos algunos outputs (y con esto cerramos el post) en diferentes estadíos del aprendizaje. Los versos que estan entre comillas son los "generadores": están extraidos
+Veamos algunos outputs (y con esto cerramos el post) en diferentes estadíos del aprendizaje. Los versos que estan entre comillas son los "generadores": están extraidos aleatoriamente de los tokes originales. La idea es que funcionen como una primera secuencia de caracteres para que la red pueda ir prediciendo desde ahí el resto. Hemos generado 400 caracteres a partir de estos generadores:
 
 ##### Epoch 0
 
