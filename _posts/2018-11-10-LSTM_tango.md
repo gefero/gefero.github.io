@@ -46,7 +46,7 @@ es la de [Chris Olah](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 Vamos a dejar para el episodio 2 los pormenores del código para entrenar el modelo propiamente dicho.
 En este post queríamos centrar la mirada en la estructura de datos que vamos a utilizar. Pueden consultar el notebook completo [acá](https://colab.research.google.com/drive/1mB01KCbzBkY53vaCrch7uv1F6ReKCaMm).
 
-Vale la cita para Chollet (autor de [este otro librazo]()) y del framework [Keras](https://keras.io/), del cual tomamos -y fuimos modificando- parte del [código](https://github.com/keras-team/keras/blob/master/examples/lstm_text_generation.py).
+Vale la cita para Chollet (autor de [este otro librazo](https://www.manning.com/books/deep-learning-with-python)) y del framework [Keras](https://keras.io/), del cual tomamos -y fuimos modificando- parte del [código](https://github.com/keras-team/keras/blob/master/examples/lstm_text_generation.py).
 
 ```python
 path = './gdrive/My Drive/Notebooks/RNN Tango/data/V2letras.txt'
@@ -97,7 +97,7 @@ Vamos a meternos en detalle sobre el proceso de entrenamiento (que al momento de
 
 Veamos como evolucionó la accuracy del modelo:
 
-![](LSTM_tango_acc.png)
+![accuracy](/images/LSTM_tango_acc.png)
 
 Pareciera que se ve una tendencia a la baja, aunque con varios picos. De hecho, al volver a chequear un rato después había habido una subida durante la iteración 12, que retomo la tendencia a la baja. Así que, por ese lado, pareciera que la cosa va bien.
 
