@@ -39,7 +39,7 @@ ul.posts {
 }
 
 ul.posts li {
-    list-style: round;
+    list-style: none;
 }
 
 .MathJax {
