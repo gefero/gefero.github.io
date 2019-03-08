@@ -178,7 +178,7 @@ medio alargada en el mapa anterior. Esto es porque no le especificamos a
 `ggplot`en qué sistema de coordenadas está.
 
 ---------------------
->Para más detalles sobre sistemas de coordenadas y referencia pueden consultar [Ciencia de Datos para Gente Sociable](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/) de Antonio Vázquez Brust, material (y autor) que dieron una mano grande a este >curso -además de ser colega y amigo-.
+>Para más detalles sobre sistemas de coordenadas y referencia pueden consultar [Ciencia de Datos para Gente Sociable](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/) de Antonio Vázquez Brust, material (y autor) que dieron una mano grande a este curso -además de ser colega y amigo-.
 
 ---------------------
 
