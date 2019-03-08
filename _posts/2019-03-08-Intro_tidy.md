@@ -165,8 +165,6 @@ papel (o a la pantalla, en este caso). Si se fijan, la CABA aparece
 medio alargada en el mapa anterior. Esto es porque no le especificamos a
 `ggplot`en qué sistema de coordenadas está.
 
-Pasemos, entonces la capa `coord_map('mercator')`
-
 ------------------------------
 > Para más detalles sobre sistemas de coordenadas y referencia pueden
 > consultar [Ciencia de Datos para Gente
@@ -175,6 +173,10 @@ Pasemos, entonces la capa `coord_map('mercator')`
 > a este curso -además de ser colega y amigo-.
 
 ------------------------------
+
+
+Pasemos, entonces la capa `coord_map('mercator')`
+
 
 
     ggplot(delitos_limpios) + 
