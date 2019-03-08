@@ -11,10 +11,13 @@ comments: true
 Introducción
 ------------
 
-La idea de esta notebook es poder introducir algunos conceptos básicos
+La idea de esta serie es poder introducir algunos conceptos básicos
 del llamado `tidyverse` en R. Vamos a tratar de hacernos amigos de
 algunos algunos de los verbos que vimos hace un rato y que nos van a
-hacer la vida más fácil en la manipulación de datos.
+hacer la vida más fácil en la manipulación de datos. Particularmente,
+en este post, vamos a trabajar un poquito sobre una instrucción importante 
+`filter()` y a dar algunas intuiciones sobre la visualización de datos 
+en `ggplot2`
 
 
 PASO 1. Cargar las librerías a utilizar
@@ -164,11 +167,11 @@ medio alargada en el mapa anterior. Esto es porque no le especificamos a
 
 Pasemos, entonces la capa `coord_map('mercator')`
 
-Para más detalles sobre sistemas de coordenadas y referencia pueden
-consultar [Ciencia de Datos para Gente
-Sociable](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/)
-de Antonio Vázquez Brust, material (y autor) que dieron una mano grande
-a este curso -además de ser colega y amigo-.
+> Para más detalles sobre sistemas de coordenadas y referencia pueden
+> consultar [Ciencia de Datos para Gente
+> Sociable](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/)
+> de Antonio Vázquez Brust, material (y autor) que dieron una mano grande
+> a este curso -además de ser colega y amigo-.
 
 
     ggplot(delitos_limpios) + 
