@@ -26,9 +26,12 @@ PASO 1. Cargar las librerías a utilizar
 Lo primero que tenemos que hacer, siempre, en una sesión de R es cargar
 o importar las librerías que vamos a utilizar.
 
+```r
     library(tidyverse)
     library(sf)
     library(gdalUtils)
+
+```
 
 PASO 2. Importando los datos
 ----------------------------
@@ -44,6 +47,7 @@ Delito](https://mapa.seguridadciudad.gob.ar/) generado por el GCBA.
 Primero, importamos el gran archivo en formato .csv que contiene en cada
 fila un delito reportado y una serie de atributos asociados.
 
+```
     delitos <- read.csv("../data/delitos.csv")
     head(delitos)
 
@@ -69,14 +73,18 @@ fila un delito reportado y una serie de atributos asociados.
     ## 5                  0                 0
     ## 6                  0                 0
 
+```
+
 Hagamos un primer gráfico rápido de este dataset a ver qué
 encontramos... Lo más fácil de todo sería plotear la latitud contra la
 longitud.
 
+```r
     ggplot(delitos) + 
             geom_point(aes(x=longitud, y=latitud))
 
 
+```
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p1.png" alt="acc" title="Plot 1">
 
 
@@ -84,6 +92,7 @@ longitud.
 Ya vemos que hay algo raro... hay un puntito solitario en
 `(lat=0, long=0)`. Podemos eliminarlo, entonces.
 
+```
     delitos_limpios <- filter(delitos, latitud!=0 | longitud!=0)
     head(delitos_limpios)
 
@@ -109,11 +118,14 @@ Ya vemos que hay algo raro... hay un puntito solitario en
     ## 5                  0                 0
     ## 6                  0                 0
 
+```
 Bien... ya hicimos una primera limpieza de los datos.
 
+```r
     ggplot(delitos_limpios) + 
             geom_point(aes(x=longitud, y=latitud))
 
+```
 
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p2.png" title="Plot 2">
 
@@ -165,23 +177,20 @@ papel (o a la pantalla, en este caso). Si se fijan, la CABA aparece
 medio alargada en el mapa anterior. Esto es porque no le especificamos a
 `ggplot`en qué sistema de coordenadas está.
 
-------------------------------
-> Para más detalles sobre sistemas de coordenadas y referencia pueden
-> consultar [Ciencia de Datos para Gente
-> Sociable](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/)
-> de Antonio Vázquez Brust, material (y autor) que dieron una mano grande
-> a este curso -además de ser colega y amigo-.
+---------------------
+>Para más detalles sobre sistemas de coordenadas y referencia pueden consultar [Ciencia de Datos para Gente Sociable](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/) de Antonio Vázquez Brust, material (y autor) que dieron una mano grande a este >curso -además de ser colega y amigo-.
 
-------------------------------
-
+---------------------
 
 Pasemos, entonces la capa `coord_map('mercator')`
 
 
-
+```r
     ggplot(delitos_limpios) + 
             geom_point(aes(x=longitud, y=latitud), color='blue') +
             coord_map("mercator")
+
+```
 
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p3.png" title="Plot 3">
 
@@ -191,17 +200,26 @@ Bien, cambiemos el tamaño de los puntitos. El parámetro `size` está en
 pixels, por lo cual no es fácil estimarlo sin ver una versión previa del
 plot, primero.
 
+
+```r
     ggplot(delitos_limpios) + 
             geom_point(aes(x=longitud, y=latitud), color='red', size=0.05) +
             coord_map("mercator")
+
+```
+
 
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p4.png" title="Plot 4">
 
 Y, por último, cambiemos la forma...
 
+
+```r
     ggplot(delitos_limpios) + 
             geom_point(aes(x=longitud, y=latitud), color='red', size=0.05, shape=3) +
             coord_map("mercator")
+
+```
 
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p4.png" title="Plot 4">
 
@@ -215,11 +233,13 @@ continguos, condicioados a los valores de una variable (generalmente,
 categórica). Veamos, entonces, un plot por cada uno de los tipos de
 delitos...
 
+```r
     ggplot(delitos_limpios) + 
             geom_point(aes(x=longitud, y=latitud, color=tipo_delito), size=0.05, alpha=0.25) +
             facet_wrap(~tipo_delito) +
             coord_map("mercator")
 
+```
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p6.png" title="Plot 6">
 
 
@@ -230,28 +250,36 @@ delitos...
 
 Veamos ahora cuáles son los tipos de delitos más comunes en la CABA.
 
+```r
     ggplot(delitos_limpios, aes(x=tipo_delito))+
             geom_bar(stat="count")
+
+```
 
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p7.png" title="Plot 7">
 
 Se ve bastante bien... aunque tenemos acomodar un poco las etiquetas.
 Una opción es pedirle a `ggplot` que las abrevie:
 
+```r
     ggplot(delitos_limpios, aes(x=tipo_delito))+
             geom_bar(stat="count") + 
             scale_x_discrete(labels = abbreviate)
+
+```
 
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p8.png" title="Plot 8">
 
 
 Otra es pasarle nosotros un vector de etiquetas:
 
+```
     ggplot(delitos_limpios, aes(x=tipo_delito))+
             geom_bar(stat="count") + 
             scale_x_discrete(labels = c('H.doloso','H.seg.vial', 'Hurto(s/v)', 
                                         'Robo(c/v)', 'Robo auto', 'Hurto auto', 'Lesion.seg.vial'))
 
+```
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p9.png" title="Plot 9">
 
 
