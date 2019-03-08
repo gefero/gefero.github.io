@@ -4,7 +4,7 @@ layout: post
 title: "(Otra) introducción a `tidyverse`... pero con datos copados. Parte 1."
 date: 2019-03-08
 mathjax: true
-comments: true
+page.comments: true
 ---
 
 
