@@ -2,7 +2,7 @@
 
 layout: post
 title: "(Otra) introducción a `tidyverse`... pero con datos copados. Parte 1."
-date: 2018-11-10
+date: 2019-03-08
 mathjax: true
 comments: true
 ---
@@ -16,13 +16,6 @@ del llamado `tidyverse` en R. Vamos a tratar de hacernos amigos de
 algunos algunos de los verbos que vimos hace un rato y que nos van a
 hacer la vida más fácil en la manipulación de datos.
 
-# Objetivos
-
--   Brindar nociones sobre la lógica general del `tidyverse` para el
-    preprocesamiento de datos
--   Introducir algunas funciones básicas para el filtrado, trasformación
-    y merge de datos
--   Presentar herramientas para la visualización de datos
 
 PASO 1. Cargar las librerías a utilizar
 ---------------------------------------
@@ -81,7 +74,7 @@ longitud.
             geom_point(aes(x=longitud, y=latitud))
 
 
-<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p1.png" alt="acc" title="Plot 1.">
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p1.png" alt="acc" title="Plot 1">
 
 
 
@@ -118,16 +111,13 @@ Bien... ya hicimos una primera limpieza de los datos.
     ggplot(delitos_limpios) + 
             geom_point(aes(x=longitud, y=latitud))
 
-![](../blog/_files/2019-03-08-Intro_tidy_files/unnamed-chunk-6-1.png)
 
-------------------------------------------------------------------------
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p2.png" title="Plot 2">
 
-## ¿Qué pasó acá?
+## ¿Qué pasó hasta acá?
 
 Acabamos de introducir una buena cantidad de código que conviene empezar
 a revisar para ir fijando conceptos.
-
-### Gráficos
 
 Acabamos de hacer una visualización bien rápida. Teníamos una varaiable
 que medía la posición en el eje *X* (o sea la `longitud`) y otra que lo
@@ -143,9 +133,7 @@ ggplot:
 Vamos a volver, pero en general, todos los gráficos de `ggplot2` se
 construyen acumulando capas estéticas.
 
-### Filtros
-
-Encontramos ¿una? inconsistencia en la base de datos. Básicamente, uno o
+A su vez, encontramos ¿una? inconsistencia en la base de datos. Básicamente, uno o
 varios registros con coordenadas `latitud==0 & longitud==0`. Entonces,
 usamos la instrucción `filter()` para filtrar los casos que cumplían con
 esa condicion.
@@ -159,7 +147,7 @@ de dos variables cuantitativas. Sigamos con nuestro ejemplo y veamos
 algunos parámetros para modificar la estética del plot (que vale para
 cualquier `geom_XXX`).
 
-# Tamaño, color y forma (y una proyección)
+## Tamaño, color y forma (y una proyección)
 
 Pongamos un color más bonito que ese negro. Y aprovechemos para hacer
 una aclaración. Estrictamente, estamos trabajando con variables de
@@ -187,7 +175,7 @@ a este curso -además de ser colega y amigo-.
             geom_point(aes(x=longitud, y=latitud), color='blue') +
             coord_map("mercator")
 
-![](../blog/_files/2019-03-08-Intro_tidy_files/unnamed-chunk-7-1.png)
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p3.png" title="Plot 3">
 
 Ahora se parece más al Buenos Aires de Gardel...
 
@@ -199,7 +187,7 @@ plot, primero.
             geom_point(aes(x=longitud, y=latitud), color='red', size=0.05) +
             coord_map("mercator")
 
-![](../blog/_files/2019-03-08-Intro_tidy_files/unnamed-chunk-8-1.png)
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p4.png" title="Plot 4">
 
 Y, por último, cambiemos la forma...
 
@@ -207,9 +195,10 @@ Y, por último, cambiemos la forma...
             geom_point(aes(x=longitud, y=latitud), color='red', size=0.05, shape=3) +
             coord_map("mercator")
 
-![](../blog/_files/2019-03-08-Intro_tidy_files/unnamed-chunk-9-1.png)
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p4.png" title="Plot 4">
 
-### Facetado
+
+## Facetado
 
 Ahora, si queremos agregar más dimensiones al plot... la cosa se hace un
 poco más densa. Es por eso que podemos usar una nueva "capa" de
@@ -223,7 +212,8 @@ delitos...
             facet_wrap(~tipo_delito) +
             coord_map("mercator")
 
-![](../blog/_files/2019-03-08-Intro_tidy_files/unnamed-chunk-10-1.png)
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p6.png" title="Plot 6">
+
 
 *¿Qué diferencias hay con los plots anteriores?*
 
@@ -237,14 +227,14 @@ Generar los siguientes gráficos:
     delito.
 
 
-# Otros plots...
+## Otros plots...
 
 Veamos ahora cuáles son los tipos de delitos más comunes en la CABA.
 
     ggplot(delitos_limpios, aes(x=tipo_delito))+
             geom_bar(stat="count")
 
-![](../blog/_files/2019-03-08-Intro_tidy_files/unnamed-chunk-11-1.png)
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p7.png" title="Plot 7">
 
 Se ve bastante bien... aunque tenemos acomodar un poco las etiquetas.
 Una opción es pedirle a `ggplot` que las abrevie:
@@ -253,7 +243,8 @@ Una opción es pedirle a `ggplot` que las abrevie:
             geom_bar(stat="count") + 
             scale_x_discrete(labels = abbreviate)
 
-![](../blog/_files/2019-03-08-Intro_tidy_files/unnamed-chunk-12-1.png)
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p8.png" title="Plot 8">
+
 
 Otra es pasarle nosotros un vector de etiquetas:
 
@@ -262,7 +253,7 @@ Otra es pasarle nosotros un vector de etiquetas:
             scale_x_discrete(labels = c('H.doloso','H.seg.vial', 'Hurto(s/v)', 
                                         'Robo(c/v)', 'Robo auto', 'Hurto auto', 'Lesion.seg.vial'))
 
-![](../blog/_files/2019-03-08-Intro_tidy_files/unnamed-chunk-13-1.png)
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p9.png" title="Plot 9">
 
 
 ## Consigna 2.
@@ -270,7 +261,7 @@ Otra es pasarle nosotros un vector de etiquetas:
 Generar un gráfico de barras por comuna
 
 
-# Histogramas
+## Histogramas
 
 Un histograma, como hemos visto, se usa para mostrar la distribución de
 una variable continua. Por ejemplo, podríamos hacer un histograma de la
