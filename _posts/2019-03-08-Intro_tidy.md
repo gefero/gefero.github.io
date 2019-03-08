@@ -175,7 +175,7 @@ en 3 dimensiones) a un plano (en 2 dimensiones).
 Es decir que "deforman" la forma de la tierra para llevarla a la hoja de
 papel (o a la pantalla, en este caso). Si se fijan, la CABA aparece
 medio alargada en el mapa anterior. Esto es porque no le especificamos a
-`ggplot`en qué sistema de coordenadas está.
+`ggplot` en qué sistema de coordenadas está.
 
 ---------------------
 >Para más detalles sobre sistemas de coordenadas y referencia pueden consultar [Ciencia de Datos para Gente Sociable](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/) de Antonio Vázquez Brust, material (y autor) que dieron una mano grande a este curso -además de ser colega y amigo-.
