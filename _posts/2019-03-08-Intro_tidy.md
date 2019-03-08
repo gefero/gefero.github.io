@@ -173,6 +173,7 @@ Pasemos, entonces la capa `coord_map('mercator')`
 > Sociable](https://bitsandbricks.github.io/ciencia_de_datos_gente_sociable/)
 > de Antonio Vázquez Brust, material (y autor) que dieron una mano grande
 > a este curso -además de ser colega y amigo-.
+
 ------------------------------
 
 
