@@ -215,16 +215,7 @@ delitos...
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p6.png" title="Plot 6">
 
 
-*¿Qué diferencias hay con los plots anteriores?*
-
-
-## Consigna 1.
-
-Generar los siguientes gráficos:
-
--   El gráfico anterior, variando la capa `facet_wrap` por `facet_grid`.
--   El gráfico anterior, sin facetado y con un color por cada tipo de
-    delito.
+¿Qué diferencias hay con los plots anteriores?*
 
 
 ## Otros plots...
@@ -254,11 +245,6 @@ Otra es pasarle nosotros un vector de etiquetas:
                                         'Robo(c/v)', 'Robo auto', 'Hurto auto', 'Lesion.seg.vial'))
 
 <img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-08-Intro_tidy_files/p9.png" title="Plot 9">
-
-
-## Consigna 2.
-
-Generar un gráfico de barras por comuna
 
 
 ## Histogramas
