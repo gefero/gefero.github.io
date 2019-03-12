@@ -3,4 +3,5 @@ markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
 site.disqus_short_name: gefero
 site.url: https://gefero.github.io
+enable_disqus: true
 
