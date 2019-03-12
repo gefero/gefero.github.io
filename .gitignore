@@ -1,1 +1,6 @@
 	_site/
+#VIM files
+
+*~
+*.swp
+*.swo
