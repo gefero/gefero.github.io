@@ -1,0 +1,86 @@
+---
+title: "(Interludio interesante) Conectándose a un servidor de mapas rn R"
+author: Germán Rosati
+output: md_document
+---
+
+
+Va a ser un post rápido: estoy usando bastantes datos geográficos y necesitaba la forma de conectarme al servicio de mapas de [INDEC](http://www.indec.gob.ar). 
+
+Acá va un snippet rápido para hacerlo
+
+*1. Traemos las librerías a usar:*
+
+```{r include=FALSE}
+library(tidyverse)
+library(sf)
+library(gdalUtils)
+```
+
+
+*2. Definimos la dirección del WFS y vemos qué información hay:*
+
+```{r}
+wfs <- "WFS:https://geoservicios.indec.gov.ar/geoserver/ows?service=wfs&version=1.0.0&request=GetCapabilities"
+
+info <- ogrinfo(wfs, so = TRUE)
+```
+Vemos que hay capas a nivel provincia, departamento y provincia.
+
+
+*3. Elegimos las que queremos traer: en este caso, traemos la tabla de Necesidades Básicas Insatisfechas a nivel departamento:*
+
+```{r}
+# Definimos el nombre de la capa tal y como figura en servidor
+lay <- "geocenso2010:nbi_dpto"
+
+# Definimos una ruta y un nombre para un archivo
+file <-  "../../data/nbi_dpto.geojson"
+
+# Ejecutamos la consulta:
+ogr2ogr(
+        src_datasource_name = wfs,
+        layer = lay,                    
+        dst_datasource_name = file ,  
+        f = "geojson",                           
+        t_srs = "EPSG:4326",
+        verbose = TRUE
+)
+
+# Salvamos el archivo
+ind_radio <- st_read(file, stringsAsFactors = TRUE)
+```
+
+Y eso es todo, amigos.
+
+Seguimos en breve con nuestra programación habitual (y con la introducción al `tydyverse`).
+
+Va el código completo
+
+```{r message=FALSE, warning=FALSE, paged.print=FALSE, results='hide'}
+library(tidyverse)
+library(sf)
+library(gdalUtils)
+
+
+wfs <- "WFS:https://geoservicios.indec.gov.ar/geoserver/ows?service=wfs&version=1.0.0&request=GetCapabilities"
+info <- ogrinfo(wfs, so = TRUE)
+
+lay <- "geocenso2010:nbi_dpto"
+file <-  "../../data/nbi_dpto.geojson"
+
+# Ejecutamos la consulta:
+ogr2ogr(
+        src_datasource_name = wfs,
+        layer = lay,                    
+        dst_datasource_name = file ,  
+        f = "geojson",                           
+        t_srs = "EPSG:4326",
+        verbose = TRUE
+)
+
+# Salvamos el archivo
+ind_radio <- st_read(file, stringsAsFactors = TRUE)
+
+```
+
