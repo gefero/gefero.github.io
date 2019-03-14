@@ -16,7 +16,7 @@ necesitaba la forma de conectarme al servicio de mapas de
 
 Acá va un snippet rápido para hacerlo
 
-**1. Traemos las librerías a usar:**
+*1. Traemos las librerías a usar:*
 
 ```r
 library(tidyverse)
@@ -24,7 +24,7 @@ library(sf)
 library(gdalUtils)
 ```
 
-**2. Definimos la URL del WFS y vemos qué información hay:**
+*2. Definimos la URL del WFS y vemos qué información hay:*
 
 ```r
     wfs <- "WFS:https://geoservicios.indec.gov.ar/geoserver/ows?service=wfs&version=1.0.0&request=GetCapabilities"
@@ -34,7 +34,7 @@ library(gdalUtils)
 
 Vemos que hay capas a nivel provincia, departamento y provincia.
 
-**3. Elegimos las que queremos traer: en este caso, traemos la tabla de Necesidades Básicas Insatisfechas a nivel departamento:**
+*3. Elegimos las que queremos traer: en este caso, traemos la tabla de Necesidades Básicas Insatisfechas a nivel departamento:*
 
 ```r
     # Definimos el nombre de la capa tal y como figura en servidor
