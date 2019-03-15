@@ -74,11 +74,12 @@ ind_filtrado<-ind_dpto %>%
         filter(departamento!="Antártida Argentina" & departamento!="Islas del Atlántico Sur")
 
 ggplot() + 
-        geom_sf(data=ind_filtrado, aes(fill=personas_con_nbi_porc)) +
+        geom_sf(data=ind_filtrado, color=NA, aes(fill=personas_con_nbi_porc)) +
         scale_fill_viridis_c() +
-        labs(title = "Porcentaje de personas en hogares con NBI",
+        labs(title = "Porcantaje de personas en hogares con NBI",
              subtitle = "Total de departamentos",
-             fill = "% NBI")
+             fill = "% NBI") + 
+        theme_minimal()
 ```
 
 Podemos ver que el mapa está muy bonito:
@@ -121,4 +122,15 @@ Código completo
 
     # Salvamos el archivo
     ind_radio <- st_read(file, stringsAsFactors = TRUE)
+    
+    ind_filtrado<-ind_dpto %>%
+        filter(departamento!="Antártida Argentina" & departamento!="Islas del Atlántico Sur")
+
+ggplot() + 
+        geom_sf(data=ind_filtrado, color=NA, aes(fill=personas_con_nbi_porc)) +
+        scale_fill_viridis_c() +
+        labs(title = "Porcantaje de personas en hogares con NBI",
+             subtitle = "Total de departamentos",
+             fill = "% NBI") + 
+        theme_minimal()
 ```
