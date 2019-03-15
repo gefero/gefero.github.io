@@ -53,7 +53,7 @@ Vemos que hay capas a nivel provincia, departamento y provincia.
             verbose = TRUE
     )
 
-# Salvamos el archivo
+# Leemos el archivo
     ind_radio <- st_read(file, stringsAsFactors = TRUE)
 
 
@@ -67,7 +67,25 @@ Vemos que hay capas a nivel provincia, departamento y provincia.
     ## proj4string:    +proj=longlat +datum=WGS84 +no_defs
 ```
 
-El archivo quedó salvado como un geojson y con proyección 4326.
+El archivo quedó salvado como un geojson y con proyección 4326. Filtremos la Antártida y las Islas del Atlántico Sur y ploteemos el porcentaje de personas en hogares con NBI para cada departamento
+
+```r
+ind_filtrado<-ind_dpto %>%
+        filter(departamento!="Antártida Argentina" & departamento!="Islas del Atlántico Sur")
+
+ggplot() + 
+        geom_sf(data=ind_filtrado, aes(fill=personas_con_nbi_porc)) +
+        scale_fill_viridis_c() +
+        labs(title = "Porcentaje de personas en hogares con NBI",
+             subtitle = "Total de departamentos",
+             fill = "% NBI")
+```
+
+Podemos ver que el mapa está muy bonito:
+
+<img src="https://github.com/gefero/gefero.github.io/raw/master/blog/_files/2019-03-14-Consultando-mapas/p1.png" title="Plot 1">
+
+
 
 Y eso es todo, amigos.
 
