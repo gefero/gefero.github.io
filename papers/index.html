@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicaciones - Germán Rosati</title>
+    <meta name="description" content="Libros, artículos científicos y publicaciones académicas sobre ciencias sociales, estructura agraria y métodos cuantitativos">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0a0a0a;
+            --color-text: #f5f5f5;
+            --color-accent: #B4121B;
+            --color-muted: #999999;
+            --color-border: #2a2a2a;
+            --color-card: #141414;
+            --color-accent-light: #d41f29;
+            --color-accent-dark: #8f0e15;
+            --font-serif: 'Crimson Pro', serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--color-accent);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .page-header {
+            margin-top: 80px;
+            padding: 4rem 2rem 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            border-bottom: 1px solid var(--color-border);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .breadcrumb a {
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--color-accent);
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--color-muted);
+            max-width: 700px;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .content-wrapper {
+            max-width: 900px;
+        }
+
+        .main-content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+            color: var(--color-accent);
+        }
+
+        .main-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .main-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .main-content a {
+            color: var(--color-accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .main-content a:hover {
+            border-bottom-color: var(--color-accent);
+        }
+
+        .book-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-left: 4px solid var(--color-accent);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .book-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 16px rgba(180, 18, 27, 0.2);
+        }
+
+        .book-cover {
+            flex-shrink: 0;
+            width: 150px;
+            height: auto;
+            border: 1px solid var(--color-border);
+        }
+
+        .book-info {
+            flex: 1;
+        }
+
+        .book-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+            line-height: 1.4;
+        }
+
+        .book-meta {
+            font-size: 1rem;
+            color: var(--color-muted);
+            margin-bottom: 1rem;
+        }
+
+        .book-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .book-link {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            border-bottom: 1px solid transparent;
+        }
+
+        .book-link:hover {
+            border-bottom-color: var(--color-accent);
+        }
+
+        .article-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+        }
+
+        .article-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+            line-height: 1.5;
+        }
+
+        .article-meta {
+            font-size: 1rem;
+            color: var(--color-muted);
+            line-height: 1.6;
+        }
+
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--color-muted);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        footer a:hover {
+            color: var(--color-accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-text);
+            transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-bg);
+                border-top: 1px solid var(--color-border);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                gap: 1rem;
+            }
+            .nav-links.active { display: flex; }
+            .page-header { padding: 3rem 1.5rem 2rem; }
+            .main-content { padding: 2rem 1.5rem; }
+            .main-content h2 { font-size: 1.75rem; }
+            .main-content h3 { font-size: 1.25rem; }
+            .book-card {
+                flex-direction: column;
+            }
+            .book-cover {
+                width: 100%;
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-brand">GR</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">Sobre mí</a></li>
+                <li><a href="/assets/files/CV-German_Rosati_AM_ESP.pdf" target="_blank">CV</a></li>
+                <li><a href="/proyects/">Proyectos</a></li>
+                <li><a href="/classes/">Clases</a></li>
+                <li><a href="/talks/">Charlas</a></li>
+                <li><a href="/papers/" class="active">Publicaciones</a></li>
+                <li><a href="https://medium.com/@german-rosati" target="_blank">Medium</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>→</span>
+            <span>Publicaciones</span>
+        </div>
+        <h1 class="page-title">Publicaciones</h1>
+        <p class="page-subtitle">Libros, artículos científicos y contribuciones académicas</p>
+    </header>
+
+    <main class="main-content">
+        <div class="content-wrapper">
+            
+            <h2>Libros</h2>
+
+            <div class="book-card">
+                <img src="/assets/images/excedentes.jpg" alt="Los excedentes del campo" class="book-cover">
+                <div class="book-info">
+                    <div class="book-title">Los excedentes del campo. Superpoblación relativa y cuestión agraria en Argentina</div>
+                    <div class="book-meta">Buenos Aires: UNSAM Edita, 2025 (en coautoría con Adriana Chazarreta)</div>
+                    <div class="book-links">
+                        <a href="https://unsamedita.unsam.edu.ar/product/los-excedentes-del-campo/" target="_blank" class="book-link">→ Ver libro</a>
+                        <a href="https://ojs.ceil-conicet.gov.ar/index.php/revistaalasru/article/view/1628" target="_blank" class="book-link">→ Leer reseña</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="/assets/images/sobran.jpg" alt="Los que sobran (para el capital)" class="book-cover">
+                <div class="book-info">
+                    <div class="book-title">Los que sobran (para el capital). Los trabajadores argentinos entre el activo y la reserva</div>
+                    <div class="book-meta">Buenos Aires: Grupo Editor Universitario, 2023 (en coautoría con Ricardo Donaire)</div>
+                    <div class="book-links">
+                        <a href="https://www.aulataller.com/titulos/GEU_pasado_presente_clase_obrera_argentina_07.htm" target="_blank" class="book-link">→ Ver libro</a>
+                        <a href="https://ojs.aset.org.ar/revista/article/view/159" target="_blank" class="book-link">→ Leer reseña</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Artículos en revistas científicas con referato</h2>
+
+            <h3>Publicados</h3>
+
+            <div class="article-item">
+                <div class="article-title">"Configuraciones espaciales del agro argentino. Análisis de las estructuras sociales en Argentina mediante datos de alta resolución (2018-2020)"</div>
+                <div class="article-meta">(en coautoría con Adriana Chazarreta), en <em>Estudios Rurales</em>, Vol. 15, N°32. <a href="https://doi.org/10.48160/22504001er32.635" target="_blank">https://doi.org/10.48160/22504001er32.635</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Movilidad laboral de los asalariados agropecuarios en Argentina"</div>
+                <div class="article-meta">(en coautoría con Adriana Chazarreta), en <em>Estudios Del Trabajo</em>, N°69. <a href="https://ojs.aset.org.ar/revista/article/view/161" target="_blank">https://ojs.aset.org.ar/revista/article/view/161</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Desarrollo capitalista, globalización y cuestión agraria en el siglo XXI"</div>
+                <div class="article-meta">(en coautoría con Adriana Chazarreta), <em>Revista Eutopía</em>, FLACSO-ANDES, N°27, 2025. DOI: <a href="https://doi.org/10.17141/eutopia.27.2025.6531" target="_blank">https://doi.org/10.17141/eutopia.27.2025.6531</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Gender biases and hate speech: Promoters and targets in the Argentinean political context"</div>
+                <div class="article-meta">(en coautoría con Domenech Burin L, Pérez JM, Rodrigues Pires M, Nanton M, Kozlowski, D.), <em>PLOS ONE</em> 20(1): e0317001, 2025. <a href="https://doi.org/10.1371/journal.pone.0317001" target="_blank">https://doi.org/10.1371/journal.pone.0317001</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Analizando trayectorias de uso del suelo. Una propuesta de clusterización"</div>
+                <div class="article-meta">en <em>Geograficando</em>, FaHCE-UNLP, 2023, (ISSN:2346-898X). DOI: <a href="https://doi.org/10.24215/2346898Xe130" target="_blank">https://doi.org/10.24215/2346898Xe130</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Una aproximación a los temas acerca de la COVID-19. Aplicación de técnicas de procesamiento de lenguaje natural sobre comentarios de lectores de noticias digitales"</div>
+                <div class="article-meta">(en coautoría con Adriana Chazarreta, Laia Domenech y Tomás Maguire), en <em>Papeles de Trabajo</em>, EIDAES-UNSAM, n°15, Vol. 28, 2022 (ISSN: 1851-2577). <a href="https://revistasacademicas.unsam.edu.ar/index.php/papdetrab/article/view/1290" target="_blank">Ver artículo</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"La integración de fuentes diversas de información en los estudios territoriales. Reflexiones sobre dos investigaciones"</div>
+                <div class="article-meta">en <em>Revista QUID 16</em>, n°17, 2022 (ISSN: 2250-4060). <a href="https://publicaciones.sociales.uba.ar/index.php/quid16/article/view/7004/pdf" target="_blank">Ver artículo</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Procesamiento de Lenguaje Natural aplicado a las ciencias sociales. Detección de tópicos en letras de tango"</div>
+                <div class="article-meta">en <em>Revista Latinoamericana de Metodología de la Investigación Social</em>, n°23, CIES, 2022, (ISSN: 1853-6190). <a href="https://relmis.com.ar/ojs/index.php/relmis/article/view/procesamiento_lenguaje_natural/" target="_blank">Ver artículo</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Métodos de Machine Learning como alternativa para la imputación de datos perdidos. Un ejercicio en base a la Encuesta Permanente de Hogares"</div>
+                <div class="article-meta">en <em>Estudios del Trabajo</em>, n°61, 2021, (ISSN: 2545-7756). <a href="https://ojs.aset.org.ar/revista/article/view/81" target="_blank">Ver artículo</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Tipos de estructuras sociales agrarias en la formación social argentina. Un análisis a nivel departamental: 2001-2002"</div>
+                <div class="article-meta">(en coautoría con Adriana Chazarreta), en <em>Revista Mundo Agrario</em>, n°21, Vol. 48, 2020, CEHR, Facultad de Humanidades y Ciencias de la Educación, UNLP, (ISSN: 1515-5994). DOI: <a href="https://doi.org/10.24215/15155994e153" target="_blank">https://doi.org/10.24215/15155994e153</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Building a sanitary vulnerability map from open source data in Argentina (2010-2018)"</div>
+                <div class="article-meta">en <em>International Journal of Equity in Health</em>, n°20, 2020, (ISSN: 1475-9276). DOI: <a href="https://doi.org/10.1186/s12939-020-01292-3" target="_blank">https://doi.org/10.1186/s12939-020-01292-3</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Ciclos de ocupación anuales y patrones de movilidad de los trabajadores agropecuarios: una aproximación a sus determinantes mediante técnicas de Ensamble Learning"</div>
+                <div class="article-meta">en <em>Estudios Rurales</em>, n°19, Vol. 10, CEAR, UNQUi, (ISSN: 2250-4001). DOI: <a href="https://doi.org/10.48160/22504001er19.87" target="_blank">https://doi.org/10.48160/22504001er19.87</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Una aproximación a las trayectorias laborales de los trabajadores mecánicos y manuales en la cosecha algodonera. Chaco, Argentina"</div>
+                <div class="article-meta">en <em>Trabajo y Sociedad</em>, n°30, 2018, Facultad de Humanidades y Ciencias Sociales, Universidad Nacional de Santiago del Estero, (ISSN: 1514-6871)</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Construcción de un modelo de imputación para variables de ingreso con casos perdidos a partir de ensamble learning. Aplicación a la Encuesta Permanente de Hogares"</div>
+                <div class="article-meta">en <em>Revista SaberEs</em>, Vol. 9, n°1, 2017, Facultad de Ciencias Económicas y Estadística, Universidad Nacional de Rosario, (ISSN: 1852-4184). DOI: <a href="https://doi.org/10.35305/s.v9i1.132" target="_blank">https://doi.org/10.35305/s.v9i1.132</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"El Qualitative Comparative Analysis (QCA) como herramienta analítica. Dos aplicaciones para el análisis de entrevistas"</div>
+                <div class="article-meta">(en coautoría con Adriana Chazarreta), en <em>Revista Latinoamericana de Metodología de las Ciencias Sociales</em>, Centro Interdisciplinario de Metodología de las Ciencias Sociales, Vol. 7, 2017 Universidad Nacional de La Plata, La Plata, (ISSN: 1853-7863). DOI: <a href="https://doi.org/10.24215/18537863e018" target="_blank">https://doi.org/10.24215/18537863e018</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Transformaciones vitivinícolas recientes: estructura productiva y patrones de movilidad de las bodegas. Mendoza (Argentina), 2004-2011"</div>
+                <div class="article-meta">(en coautoría con Adriana Chazarreta), en <em>Cuadernos FhyCS-UNJu</em>, n°50, 2016, Facultad de Humanidades y Ciencias Sociales, Universidad Nacional de Jujuy, San Salvador de Jujuy, (ISSN: 0327-1471). <a href="https://revistas.fhycs.unju.edu.ar/revistacuadernos/index.php/cuadernos/article/view/238" target="_blank">Ver artículo</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Dos dimensiones de las lógicas de funcionamiento de un mercado de fuerza de trabajo agropecuario: niveles y formas de remuneración en la cosecha de algodón, (Chaco 1990-2012)"</div>
+                <div class="article-meta">en <em>Revista Población y Sociedad</em>, Vol. 22, n°2, 2015, Instituto Superior de Estudios Sociales, Universidad Nacional de Tucumán, Tucumán (ISSN: 1852-8562)</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Cambios en la estructura social agraria pampeana. Un acercamiento a la caracterización de los pequeños propietarios rentistas del sur de Santa Fe"</div>
+                <div class="article-meta">(en coautoría con Masello, D.), en <em>Pampa. Revista Interuniversitaria de Estudios territoriales</em>, n°9, 2013, Universidad Nacional del Litoral, Santa Fe, (ISSN: 1669-3299). <a href="https://bibliotecavirtual.unl.edu.ar/publicaciones/index.php/Pampa/en/article/view/4162" target="_blank">Ver artículo</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Conflicto agrario y desarrollo del capitalismo en el campo. Un análisis exploratorio del conflicto por la resolución 125 (Argentina, marzo-julio 2008)"</div>
+                <div class="article-meta">en <em>Revista América Latina</em> n°13/14, 1er semestre de 2013, Doctorado en Procesos Sociales y Políticos en América Latina (PROPSAL), Universidad ARCIS, Santiago de Chile, (ISSN: 0717-7097)</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"La fijación de trabajadores indígenas en un territorio productivo. Documentos para el análisis de la 'Masacre de Napalpí', Chaco, 1924"</div>
+                <div class="article-meta">en <em>Estudios del Trabajo</em>, n°41/42 Asociación de Estudios del Trabajo, Buenos Aires, 2011 (ISSN: 0327-5744)</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Sobre el supuesto de 'homogeneidad' en el análisis de la estructura social. Reflexiones a partir de un ejercicio empírico"</div>
+                <div class="article-meta">(coautoría con R. Donaire), en <em>Revista de la Carrera de Sociología. Entramados y perspectivas</em>, Facultad de Ciencias Sociales, Universidad de Buenos Aires, Buenos Aires, (ISSN: 1853-6484). <a href="https://publicaciones.sociales.uba.ar/index.php/entramadosyperspectivas/article/view/132" target="_blank">Ver artículo</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"La captación estadística de los asalariados agropecuarios. Reflexiones en torno a sus problemas mediante un ejercicio de comparación entre censos de población y agropecuarios (Argentina, 2001/2002)"</div>
+                <div class="article-meta">en <em>Revista Mundo Agrario</em>, Nº23, 2do. semestre 2011, Centro de Estudios Histórico Rurales (CEHR), Facultad de Humanidades y Ciencias de la Educación, UNLP, La Plata, (ISSN: 1515-5994). <a href="https://www.mundoagrario.unlp.edu.ar/article/view/v12n23a01" target="_blank">Ver artículo</a></div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Consideraciones sobre algunas metodologías habituales para el análisis de tablas de movilidad social. Ventajas de una alternativa basada en cadenas de Markov"</div>
+                <div class="article-meta">en <em>Empiria. Revista de Metodología de Ciencias Sociales</em>, N°22, julio-diciembre 2011, Facultad de Ciencias Políticas y Sociología de la UNED, Madrid, (ISSN: 1139-5737). DOI: <a href="https://doi.org/10.5944/empiria.22.2011.85" target="_blank">https://doi.org/10.5944/empiria.22.2011.85</a></div>
+            </div>
+
+            <h3>Artículos en libros</h3>
+
+            <div class="article-item">
+                <div class="article-title">"Frontera, deforestación y despoblamiento. Discutiendo algunas hipótesis sobre la expansión reciente de la frontera agraria en Argentina"</div>
+                <div class="article-meta">en Porcaro, Tania; Salizzi, Esteban; Martirén, Juan Luis; Lanteri, Sol (comps.). <em>Fronteras: aportes para la consolidación de un campo de estudios</em>. Buenos Aires: TeseoPress</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Trabajador algodonero"</div>
+                <div class="article-meta">en Muzlera, J. y Salomón, A. (comps.). <em>Diccionario del Agro Iberoamericano</em>, Editorial Teseo</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Estructuras sociales agrarias y conflicto en el sector. El caso del llamado 'conflicto por la 125' en 2008"</div>
+                <div class="article-meta">en Panero, Marcelo (comp.), <em>Actores, políticas públicas y conflicto agropecuario. A 10 años de la Resolución 125</em>, 2019, Editorial Universitaria de Villa María</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Problemas teóricos en torno a las funciones de la población sobrante en el capitalismo dependiente: un ejercicio de comparación entre las formaciones sociales argentina y brasileña, 1980-2010"</div>
+                <div class="article-meta">en Cangussu de Souza, D. (comp.) (2016): <em>Desemprego e movimentos sociais</em>, Editora FAP-UNIFEPS, Brasil</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Los cambios en la estructura social agraria argentina, 1988-2012"</div>
+                <div class="article-meta">(en coautoría con Adriana Chazarreta), en Kessler, Gabriel (comp.) (2015): <em>La sociedad argentina hoy. Radiografía de una nueva estructura</em>, Siglo XXI Editores- Fundación OSDE, Buenos Aires</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Patrones espaciales de expansión de la frontera agrícola: la expansión sojera en Argentina (1987/88-2009/10)"</div>
+                <div class="article-meta">en Gras, C. y Hernández, V. (comps.) (2013): <em>El agro como negocio: producción, sociedad y territorios en la globalización</em>, Biblos, Buenos Aires</div>
+            </div>
+
+            <div class="article-item">
+                <div class="article-title">"Crisis del algodón, cambio tecnológico y expansión sojera en el Chaco (1988-2009). Impactos sobre la demanda de fuerza de trabajo en la cosecha algodonera"</div>
+                <div class="article-meta">en Gras, C. y Hernández, V. (comps.) (2013): <em>El agro como negocio: producción, sociedad y territorios en la globalización</em>, Biblos, Buenos Aires</div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Germán Rosati · Data Sociologist</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://www.researchgate.net/profile/German_Rosati" target="_blank">ResearchGate</a> · 
+            <a href="https://german-rosati.medium.com/" target="_blank">Medium</a> · 
+            <a href="https://github.com/gefero" target="_blank">GitHub</a> · 
+            <a href="https://www.linkedin.com/in/germán-rosati-53637263" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
