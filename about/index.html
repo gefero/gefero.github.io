@@ -1,18 +1,119 @@
----
-layout: default
-title: Acerca
----
-<div class="blurb">
-	<h1>Germán Rosati</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mí - Germán Rosati</title>
+    <meta name="description" content="Investigador especializado en Machine Learning aplicado a Ciencias Sociales, análisis de texto y estructura social">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-brand">GR</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/" class="active">Sobre mí</a></li>
+                <li><a href="/cv/">CV</a></li>
+                <li><a href="/proyects/">Proyectos</a></li>
+                <li><a href="/classes/">Clases</a></li>
+                <li><a href="/talks/">Charlas</a></li>
+                <li><a href="/papers/">Papers</a></li>
+                <li><a href="/blog/">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
 
-	 <a href="http://"></a>
-	<p>Me especializo en la aplicación de métodos de Machine Learning a las Ciencias Sociales al estudio de la estructura social y agraria y al análisis de texto (NLP, Text Mining, etc.).</p>
-	<p>Actualmente soy Investigador Asistente en el <a href="https://www.conicet.gov.ar/">Consejo Nacional de Investigaciones Científicas y Técnicas -CONICET-</a>. Tengo lugar de trabajo en el <a href="http://www.unsam.edu.ar/institutos/idaes/">Instituto de Altos Estudios Sociales</a> de la <a href="http://www.unsam.edu.ar">Universidad Nacional de San Martín</a> (IDAES-UNSAM).</p>
-        <p>Allí coordino la <a href="http://noticias.unsam.edu.ar/wp-content/uploads/2022/02/Cs-Computacionales-dga2022.pdf?fbclid=IwAR2aXxL8WN0Pk6lTfpyD6U-hSYD6dNGOftQ2GI_37q3Z8ZwUpux6Kg99T0s">Diplomatura en Ciencias Sociales Computacionales y Humanidades Digitales</a> y <a href="https://medium.com/factor-data">factor~data</a>, un laboratorio en Ciencias Sociales Computacionales. También en IDAES soy Profesor Adjunto de "Técnicas de Investigación Cuantitativa" en las carreras de Sociología y Antropología.</p>
-	<p> Soy, además, investigador del Programa de Investigaciones sobre el Movimiento de la Sociedad Argentina (PIMSA).</p>
-        <p>Anteriormente, he sido Coordinador de los programas de Data Science e Inteligencia Artificial en <a href="https://www.digitalhouse.com/">Digital House Coding School</a>. También he sido líder del Área de Procesos de Producción de Datos en el Programa PASCAL de la UNSAM.</p>
-        <p>Me he desempeñado como Analista Experto de Datos en el <a href="https://www.argentina.gob.ar/trabajo">Ministerio de Trabajo, Empleo y Seguridad Social.</a></p>
-	<p>He dictado varios cursos <a href="https://github.com/gefero/fund-prog-r">tanto en grado como posgrado</a> en el área de Data Science, Machine Learning y métodos estadísticos.</p>
-	<p>He sido Investigador Invitado en la <a href="https://www.fu-berlin.de">Freie Universität Berlin</a> y el <a href="https://www.iai.spk-berlin.de">Instituto Iberoamericano de Berlín</a>.</p>
-        <p>Soy Doctor en Ciencias Sociales y Licenciado en Sociología por la Universidad de Buenos Aires y Magíster en Generación y Análisis de Información Estadística por la Universidad Nacional de Tres de Febrero.</p>
-</div><!-- /.blurb -->
+    <header class="page-header">
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>→</span>
+            <span>Sobre mí</span>
+        </div>
+        <h1 class="page-title">Germán Rosati</h1>
+        <p class="page-subtitle">Investigador en Machine Learning aplicado a Ciencias Sociales</p>
+    </header>
+
+    <main class="main-content">
+        <div class="content-wrapper">
+            <p>
+                Me especializo en la aplicación de métodos de Machine Learning a las Ciencias Sociales, 
+                al estudio de la estructura social y agraria y al análisis de texto (NLP, Text Mining, etc.).
+            </p>
+
+            <h2>Posición Actual</h2>
+            <p>
+                Actualmente soy Investigador Asistente en el <a href="https://www.conicet.gov.ar/" target="_blank">Consejo Nacional 
+                de Investigaciones Científicas y Técnicas (CONICET)</a>. Tengo lugar de trabajo en el 
+                <a href="http://www.unsam.edu.ar/institutos/idaes/" target="_blank">Instituto de Altos Estudios Sociales</a> 
+                de la <a href="http://www.unsam.edu.ar" target="_blank">Universidad Nacional de San Martín</a> (IDAES-UNSAM).
+            </p>
+
+            <h2>Actividades en IDAES-UNSAM</h2>
+            <p>
+                Coordino la <a href="http://noticias.unsam.edu.ar/wp-content/uploads/2022/02/Cs-Computacionales-dga2022.pdf" target="_blank">Diplomatura 
+                en Ciencias Sociales Computacionales y Humanidades Digitales</a> y <a href="https://medium.com/factor-data" target="_blank">factor~data</a>, 
+                un laboratorio en Ciencias Sociales Computacionales.
+            </p>
+            <p>
+                También en IDAES soy Profesor Adjunto de "Técnicas de Investigación Cuantitativa" en las carreras de Sociología y Antropología.
+            </p>
+
+            <h2>Otras Actividades de Investigación</h2>
+            <p>
+                Soy, además, investigador del Programa de Investigaciones sobre el Movimiento de la Sociedad Argentina (PIMSA).
+            </p>
+
+            <h2>Experiencia Profesional</h2>
+            <p>
+                Anteriormente, he sido Coordinador de los programas de Data Science e Inteligencia Artificial en 
+                <a href="https://www.digitalhouse.com/" target="_blank">Digital House Coding School</a>. También he sido líder 
+                del Área de Procesos de Producción de Datos en el Programa PASCAL de la UNSAM.
+            </p>
+            <p>
+                Me he desempeñado como Analista Experto de Datos en el 
+                <a href="https://www.argentina.gob.ar/trabajo" target="_blank">Ministerio de Trabajo, Empleo y Seguridad Social</a>.
+            </p>
+
+            <h2>Docencia</h2>
+            <p>
+                He dictado varios cursos <a href="https://github.com/gefero/fund-prog-r" target="_blank">tanto en grado como posgrado</a> 
+                en el área de Data Science, Machine Learning y métodos estadísticos.
+            </p>
+
+            <h2>Experiencia Internacional</h2>
+            <p>
+                He sido Investigador Invitado en la <a href="https://www.fu-berlin.de" target="_blank">Freie Universität Berlin</a> 
+                y el <a href="https://www.iai.spk-berlin.de" target="_blank">Instituto Iberoamericano de Berlín</a>.
+            </p>
+
+            <h2>Formación Académica</h2>
+            <ul>
+                <li>Doctor en Ciencias Sociales - Universidad de Buenos Aires</li>
+                <li>Licenciado en Sociología - Universidad de Buenos Aires</li>
+                <li>Magíster en Generación y Análisis de Información Estadística - Universidad Nacional de Tres de Febrero</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Germán Rosati · Data Sociologist</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://www.researchgate.net/profile/German_Rosati" target="_blank">ResearchGate</a> · 
+            <a href="https://german-rosati.medium.com/" target="_blank">Medium</a> · 
+            <a href="https://github.com/gefero" target="_blank">GitHub</a> · 
+            <a href="https://www.linkedin.com/in/germán-rosati-53637263" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
