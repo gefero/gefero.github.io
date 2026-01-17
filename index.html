@@ -3,14 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre mí - Germán Rosati</title>
-    <meta name="description" content="Investigador especializado en Machine Learning aplicado a Ciencias Sociales, análisis de texto y estructura social">
+    <title>Germán Rosati · Data Sociologist</title>
+    <meta name="description" content="Germán Rosati - Ciencias Sociales, Machine Learning y Métodos Cuantitativos">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        :root {
+            --color-bg: #0a0a0a;
+            --color-text: #f5f5f5;
+            --color-accent: #B4121B;
+            --color-muted: #999999;
+            --color-border: #2a2a2a;
+            --color-card: #141414;
+            --color-accent-light: #d41f29;
+            --color-accent-dark: #8f0e15;
+            --font-serif: 'Crimson Pro', serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-serif);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-border);
+            z-index: 1000;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--color-text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 8rem 2rem 6rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-label {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.8s ease-out 0.3s both;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--color-muted);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            animation: fadeIn 0.8s ease-out 0.5s both;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 0.8s ease-out 0.7s both;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            color: var(--color-text);
+            transition: var(--transition);
+        }
+
+        .tag:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(180, 18, 27, 0.15);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeIn 0.8s ease-out 0.8s both;
+        }
+
+        .social-link {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--color-text);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--color-text);
+            border-radius: 4px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-link:hover {
+            background: var(--color-text);
+            color: var(--color-bg);
+            transform: translateY(-2px);
+        }
+
+        .social-link.primary {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: white;
+        }
+
+        .social-link.primary:hover {
+            background: var(--color-accent-dark);
+            border-color: var(--color-accent-dark);
+        }
+
+        /* Sections Grid */
+        .sections-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .section-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            padding: 2.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.6s ease-out both;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--color-accent);
+            transition: var(--transition);
+        }
+
+        .section-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(180, 18, 27, 0.12);
+            border-color: var(--color-accent);
+        }
+
+        .section-card:hover::before {
+            height: 100%;
+        }
+
+        .section-card:nth-child(1) { animation-delay: 0.1s; }
+        .section-card:nth-child(2) { animation-delay: 0.2s; }
+        .section-card:nth-child(3) { animation-delay: 0.3s; }
+        .section-card:nth-child(4) { animation-delay: 0.4s; }
+        .section-card:nth-child(5) { animation-delay: 0.5s; }
+        .section-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .section-number {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-muted);
+            margin-bottom: 1rem;
+        }
+
+        .section-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .section-card p {
+            color: var(--color-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .section-link {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .section-link:hover {
+            gap: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--color-muted);
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .sections-grid {
+                grid-template-columns: 1fr;
+                padding: 2rem 1.5rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .social-link {
+                justify-content: center;
+            }
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--color-text);
+            transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--color-bg);
+                border-top: 1px solid var(--color-border);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <a href="/" class="nav-brand">GR</a>
@@ -20,85 +401,137 @@
                 <span></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about/" class="active">Sobre mí</a></li>
+                <li><a href="/about/">Sobre mí</a></li>
                 <li><a href="/assets/files/CV-German_Rosati_AM_ESP.pdf" target="_blank">CV</a></li>
                 <li><a href="/proyects/">Proyectos</a></li>
                 <li><a href="/classes/">Clases</a></li>
                 <li><a href="/talks/">Charlas</a></li>
-                <li><a href="/papers/">Publicaciones</a></li>
+                <li><a href="/papers/">Papers</a></li>
                 <li><a href="/poesia/">Poesía</a></li>
                 <li><a href="https://medium.com/@german-rosati" target="_blank">Medium</a></li>
             </ul>
         </div>
     </nav>
 
-    <header class="page-header">
-        <div class="breadcrumb">
-            <a href="/">Home</a>
-            <span>→</span>
-            <span>Sobre mí</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Data Sociologist</div>
+            <h1>Germán Rosati</h1>
+            <div class="hero-subtitle">Ciencias Sociales × Machine Learning × Métodos Cuantitativos</div>
+            <p class="hero-description">
+                Investigador en la intersección de ciencias sociales y ciencia de datos. Especializado en métodos cuantitativos, 
+                machine learning aplicado a problemas sociales y análisis de datos complejos.
+            </p>
+            
+            <div class="tags">
+                <span class="tag">Ciencias Sociales</span>
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Python</span>
+                <span class="tag">Data Analysis</span>
+                <span class="tag">Research</span>
+            </div>
+
+            <div class="social-links">
+                <a href="/cdn-cgi/l/email-protection#d9bebcabb4b8b7f7abb6aab8adb099beb4b8b0b5f7bab6b4" class="social-link primary">
+                    <span>→</span> Contacto
+                </a>
+                <a href="https://github.com/gefero" target="_blank" class="social-link">
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/germán-rosati-53637263" target="_blank" class="social-link">
+                    LinkedIn
+                </a>
+            </div>
         </div>
-        <h1 class="page-title">Germán Rosati</h1>
-        <p class="page-subtitle">Investigador en Machine Learning aplicado a Ciencias Sociales</p>
-    </header>
+    </section>
 
-    <main class="main-content">
-        <div class="content-wrapper">
-            <p>
-                Me especializo en la aplicación de métodos de Machine Learning a las Ciencias Sociales, 
-                al estudio de la estructura social y agraria y al análisis de texto (NLP, Text Mining, etc.).
-            </p>
+    <!-- Sections Grid -->
+    <section class="sections-grid">
+        <a href="/about/" style="text-decoration: none; color: inherit;">
+            <div class="section-card">
+                <div class="section-number">01</div>
+                <h3>Sobre mí</h3>
+                <p>Conoce mi trayectoria académica y profesional en ciencias sociales y análisis de datos.</p>
+                <span class="section-link">Ver más →</span>
+            </div>
+        </a>
 
-            <p>
-                Actualmente soy Investigador Adjunto en el <a href="https://www.conicet.gov.ar/" target="_blank">Consejo Nacional 
-                de Investigaciones Científicas y Técnicas (CONICET)</a>. Tengo lugar de trabajo en la 
-                <a href="http://www.unsam.edu.ar/institutos/idaes/" target="_blank">Escuela Interdisciplinaria de Altos Estudios Sociales</a> 
-                de la <a href="http://www.unsam.edu.ar" target="_blank">Universidad Nacional de San Martín</a> (IDAES-UNSAM).
-            </p>
+        <a href="/proyects/" style="text-decoration: none; color: inherit;">
+            <div class="section-card">
+                <div class="section-number">02</div>
+                <h3>Proyectos</h3>
+                <p>Exploración de proyectos de investigación y desarrollo en análisis de datos sociales.</p>
+                <span class="section-link">Ver proyectos →</span>
+            </div>
+        </a>
 
-            <p>
-                Allí coordino <a href="https://factor-data.netlify.app/" target="_blank">factor~data</a>, 
-                un laboratorio en Ciencias Sociales Computacionales. También coordino el 
-                <a href="https://www.unsam.edu.ar/escuelas/eidaes/671/idaes/ciencias-sociales-computacionales-humanidades-digitales" target="_blank">Diploma 
-                en Ciencias Sociales Computacionales y Humanidades Digitales</a>. A nivel grado, dicto para las carreras de 
-                Sociología y Antropología un Track en Métodos Cuantitativos y Ciencias Sociales Computacionales y en la carrera 
-                de Ciencia de Datos de la ECyT-UNSAM una introducción a los fundamentos del NLP.
-            </p>
+        <a href="/classes/" style="text-decoration: none; color: inherit;">
+            <div class="section-card">
+                <div class="section-number">03</div>
+                <h3>Clases & Cursos</h3>
+                <p>Material educativo sobre métodos cuantitativos, machine learning y programación.</p>
+                <span class="section-link">Ver clases →</span>
+            </div>
+        </a>
 
-            <p>
-                Soy, además, investigador del Programa de Investigaciones sobre el Movimiento de la Sociedad Argentina (PIMSA).
-            </p>
+        <a href="/talks/" style="text-decoration: none; color: inherit;">
+            <div class="section-card">
+                <div class="section-number">04</div>
+                <h3>Charlas</h3>
+                <p>Presentaciones y conferencias sobre ciencia de datos aplicada a ciencias sociales.</p>
+                <span class="section-link">Ver charlas →</span>
+            </div>
+        </a>
 
-            <p>
-                Anteriormente, he sido Coordinador de los programas de Data Science e Inteligencia Artificial en 
-                <a href="https://www.digitalhouse.com/" target="_blank">Digital House Coding School</a>. También he sido líder 
-                del Área de Procesos de Producción de Datos en el Programa PASCAL de la UNSAM. Me he desempeñado como Analista 
-                Experto de Datos en el <a href="https://www.argentina.gob.ar/trabajo" target="_blank">Ministerio de Trabajo, 
-                Empleo y Seguridad Social</a>.
-            </p>
+        <a href="/papers/" style="text-decoration: none; color: inherit;">
+            <div class="section-card">
+                <div class="section-number">05</div>
+                <h3>Publicaciones</h3>
+                <p>Papers académicos, artículos y contribuciones a la investigación social cuantitativa.</p>
+                <span class="section-link">Ver papers →</span>
+            </div>
+        </a>
 
-            <p>
-                He sido Investigador Invitado en la <a href="https://www.fu-berlin.de" target="_blank">Freie Universität Berlin</a> 
-                y el <a href="https://www.iai.spk-berlin.de" target="_blank">Instituto Iberoamericano de Berlín</a>.
-            </p>
+        <a href="/poesia/" style="text-decoration: none; color: inherit;">
+            <div class="section-card">
+                <div class="section-number">06</div>
+                <h3>Poesía</h3>
+                <p>Poemarios y participaciones en antologías poéticas.</p>
+                <span class="section-link">Ver poesía →</span>
+            </div>
+        </a>
 
-            <p>
-                Finalmente, y un poco descolgado de todo lo que mencioné más arriba, <a href="/poesia/">escribo poesía</a>. He publicado dos libros de poemas y en algunas antologías.
-            </p>
-        </div>
-    </main>
+        <a href="https://medium.com/@german-rosati" target="_blank" style="text-decoration: none; color: inherit;">
+            <div class="section-card">
+                <div class="section-number">07</div>
+                <h3>Medium</h3>
+                <p>Reflexiones sobre metodología, datos y la intersección entre lo social y lo computacional.</p>
+                <span class="section-link">Leer en Medium →</span>
+            </div>
+        </a>
+    </section>
 
+    <!-- Footer -->
     <footer>
         <p>© 2025 Germán Rosati · Data Sociologist</p>
         <p style="margin-top: 0.5rem;">
-            <a href="https://www.researchgate.net/profile/German_Rosati" target="_blank">ResearchGate</a> · 
-            <a href="https://german-rosati.medium.com/" target="_blank">Medium</a> · 
-            <a href="https://github.com/gefero" target="_blank">GitHub</a> · 
-            <a href="https://www.linkedin.com/in/germán-rosati-53637263" target="_blank">LinkedIn</a>
+            <a href="https://www.researchgate.net/profile/German_Rosati" target="_blank" style="color: var(--color-muted); text-decoration: none;">ResearchGate</a> · 
+            <a href="https://german-rosati.medium.com/" target="_blank" style="color: var(--color-muted); text-decoration: none;">Medium</a>
         </p>
     </footer>
 
-    <script src="/assets/js/main.js"></script>
-</body>
-</html>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behav
