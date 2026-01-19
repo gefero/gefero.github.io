@@ -4,13 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos - Germán Rosati</title>
-    <meta name="description" content="Proyectos de investigación y desarrollo">
+    <meta name="description" content="Proyectos de investigación, mapas interactivos, aplicaciones y paquetes de análisis de datos">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .project-thumbnail {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-thumbnail:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(180, 18, 27, 0.2);
+            border-color: var(--color-accent);
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .project-thumbnail-content {
+            padding: 1.25rem;
+        }
+
+        .project-thumbnail-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .project-thumbnail-desc {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            line-height: 1.5;
+        }
+
+        .package-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-left: 4px solid var(--color-accent);
+            padding: 2rem;
+            margin: 2rem 0;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .package-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 16px rgba(180, 18, 27, 0.2);
+        }
+
+        .package-logo {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+
+        .package-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .package-info p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .package-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .package-logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
 </head>
-<body style="display: flex; flex-direction: column; min-height: 100vh;">
+<body>
     <nav>
         <div class="nav-container">
             <a href="/" class="nav-brand">GR</a>
@@ -33,18 +132,153 @@
         </div>
     </nav>
 
-    <div class="main-container">
-        <div class="construction-box">
-            <div class="construction-icon">🚧</div>
-            <h1>En construcción</h1>
-            <p class="subtitle">Proyectos</p>
-            <p class="message">
-                Esta sección está siendo actualizada. Pronto encontrarás aquí información sobre 
-                proyectos de investigación y desarrollo en análisis de datos sociales.
-            </p>
-            <a href="/" class="back-link">← Volver al inicio</a>
+    <header class="page-header">
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <span>→</span>
+            <span>Proyectos</span>
         </div>
-    </div>
+        <h1 class="page-title">Proyectos</h1>
+        <p class="page-subtitle">Mapas interactivos, aplicaciones web y herramientas de análisis de datos</p>
+    </header>
+
+    <main class="main-content">
+        <div class="content-wrapper">
+            
+            <h2>Estructura agraria</h2>
+            
+            <p>
+                Se trata de diferentes mapas sobre diferentes aspectos de la estructura agraria argentina. Fueron generados como resultado de la investigación 
+                <em>Modalidades de expansión de la frontera agrícola, cambios en el uso del suelo e impactos sobre la demanda de fuerza de trabajo agropecuaria. 
+                Argentina, 1980-2016</em> que llevo adelante como Investigador Adjunto del CONICET. 
+                <a href="https://gefero.github.io/CONICET_mapas_soja/" target="_blank">En el repositorio</a> podrán encontrar los siguientes mapas 
+                con sus correspondientes documentos metodológicos.
+            </p>
+
+            <div class="project-grid">
+                <a href="https://gefero.github.io/CONICET_mapas_soja/maps/02_estructuras.html" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-macroestructuras.jpg" alt="Macroestructuras agrarias">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Macroestructuras agrarias</div>
+                        <div class="project-thumbnail-desc">Argentina, 2002</div>
+                    </div>
+                </a>
+
+                <a href="https://gefero.github.io/CONICET_mapas_soja/maps/03_microestructuras.html" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-microestructuras.jpg" alt="Microestructuras agrarias">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Microestructuras agrarias</div>
+                        <div class="project-thumbnail-desc">Argentina, cerca 2018</div>
+                    </div>
+                </a>
+
+                <a href="https://gefero.github.io/CONICET_mapas_soja/maps/01_sust_soja_1.html" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-sustitucion.jpg" alt="Zonas de sustitución sojera">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Zonas de sustitución sojera</div>
+                        <div class="project-thumbnail-desc">Argentina, 1988-2002</div>
+                    </div>
+                </a>
+
+                <a href="https://gefero.github.io/CONICET_mapas_soja/maps/20220228_type_fires_pca_kmean_estr.html" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-focos.jpg" alt="Focos de calor">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Focos de calor y estructura agraria</div>
+                        <div class="project-thumbnail-desc">Distribución espacial 2001-2022</div>
+                    </div>
+                </a>
+            </div>
+
+            <h2>Accesibilidad en aglomerados urbanos 2018</h2>
+            
+            <p>
+                Se trata de un <a href="https://acceso.shinyapps.io/mapa/_w_7921c43d7613439e90de2908b6bf5269/#tab-6187-2" target="_blank">mapa 
+                de alta resolución espacial</a> que cuantifica para los 32 principales aglomerados urbanos de la Argentina el tiempo de acceso (a pie) 
+                a diferentes servicios (establecimientos educativos, efectores de salud, provisión de alimentos, bancos y cajeros automáticos). 
+                Se construyó en colaboración con la Fundación Bunge y Born en el marco de la pandemia COVID-19 en 2020. Algunos detalles de su construcción 
+                pueden encontrarse en <a href="https://www.researchsquare.com/article/rs-10738/v1" target="_blank">este documento</a>.
+            </p>
+
+            <div class="project-grid">
+                <a href="https://acceso.shinyapps.io/mapa/_w_7921c43d7613439e90de2908b6bf5269/#tab-6187-2" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-accesibilidad.jpg" alt="Mapa de accesibilidad urbana">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Mapa de accesibilidad urbana</div>
+                        <div class="project-thumbnail-desc">32 aglomerados urbanos de Argentina</div>
+                    </div>
+                </a>
+            </div>
+
+            <h2>Analizador de paletas de color</h2>
+            
+            <p>
+                Hay muchas decisiones relevantes a la hora de construir una visualización de datos. Una de ellas, la elección de una escala para mapear 
+                valores a colores, no es para nada trivial. Dado que las escalas funcionan como una especie de "interface" entre los datos y nuestro cerebro, 
+                es importante seleccionar una escala que no distorsione innecesariamente dicha percepción. A esta propiedad se la llama "uniformidad perceptual".
+            </p>
+            
+            <p>
+                <a href="https://color-analyzer.streamlit.app/" target="_blank">Esta herramienta</a> analiza las escalas de color en busca de uniformidad 
+                perceptual utilizando el espacio de color CIE Lab o CAM02-UCS. Una escala de color perceptualmente uniforme debe tener valores ΔE relativamente 
+                constantes entre colores consecutivos.
+            </p>
+
+            <div class="project-grid">
+                <a href="https://color-analyzer.streamlit.app/" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/app-color.jpg" alt="Analizador de paletas de color">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Analizador de paletas de color</div>
+                        <div class="project-thumbnail-desc">Herramienta de uniformidad perceptual</div>
+                    </div>
+                </a>
+            </div>
+
+            <h2>Paquetes</h2>
+            
+            <div class="package-card">
+                <img src="/assets/images/eph-logo.png" alt="Paquete EPH" class="package-logo">
+                <div class="package-info">
+                    <h3><a href="https://ropensci.github.io/eph/" target="_blank">Paquete eph</a></h3>
+                    <p>
+                        Participé en el desarrollo del paquete eph, una caja de herramientas para facilitar el procesamiento de información proveniente de 
+                        microdatos de la EPH. El paquete cumple un rol fundamental en la democratización de la posibilidad de procesar los datos publicados 
+                        por INDEC y así obtener conclusiones independientes de aquellas publicadas en los informes elaborados por el organismo.
+                    </p>
+                    <p>
+                        Dado que la información de la EPH constituye una de las principales fuentes para el análisis de las problemáticas sociales presentes 
+                        en Argentina, el paquete no sólo posibilita investigaciones académicas y periodísticas, sino que también contribuye a la formulación 
+                        de políticas públicas fundamentadas en evidencia.
+                    </p>
+                </div>
+            </div>
+
+            <h2>App inspirada en el "Martín Fierro ordenado alfabéticamente"</h2>
+            
+            <p>
+                Suele decirse (con mucha razón) que la vanguardia está muerta. Sin embargo, hay textos y autores que buscan dialogar con el fantasma de la 
+                vanguardia (como diría Tabarobsky). Uno de esos textos es el "Martín Fierro ordenado alfabéticamente" y uno de esos autores es Pablo Katchadjian: 
+                toma el Martín Fierro (la ida) y reescribirlo sin agregar nada: simplemente ordena de forma alfabética los versos y lo publica. El libro es 
+                pura forma. Pero no pura forma del lenguaje (que también lo es): es puro procedimiento, puro artefacto. Y como tal es reproducible. 
+                ¿Qué otros textos podríamos ordenar alfabéticamente? Toda la gauchesca, desde ya. La poesía épica, dada su extensión, parece bastante adecuada.
+            </p>
+            
+            <p>
+                Esta <a href="https://vanguardia-alfabetica.streamlit.app/" target="_blank">app</a> busca hacer replicable y escalable el procedimiento 
+                de Katchadjian. Ordena alfabéticamente las líneas de textos poéticos. Se puede cargar desde URL, subir un archivo o pegar el texto directamente.
+            </p>
+
+            <div class="project-grid">
+                <a href="https://vanguardia-alfabetica.streamlit.app/" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/app-vanguardia.jpg" alt="Vanguardia alfabética">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Vanguardia alfabética</div>
+                        <div class="project-thumbnail-desc">Ordenador alfabético de textos poéticos</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </main>
 
     <footer>
         <p>© 2025 Germán Rosati · Data Sociologist</p>
