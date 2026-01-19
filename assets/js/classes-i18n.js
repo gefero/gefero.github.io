@@ -180,7 +180,11 @@ function updateClassesContent(lang) {
     
     // Update document title and subtitle
     document.title = t.title;
-    document.querySelector('[data-i18n="classes.subtitle"]').textContent = t.subtitle;
+    
+    const subtitle = document.querySelector('[data-i18n="classes.subtitle"]');
+    if (subtitle) {
+        subtitle.textContent = t.subtitle;
+    }
     
     // Build HTML content
     let html = `
