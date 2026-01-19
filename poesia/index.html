@@ -20,37 +20,76 @@
                 <span></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="/" data-i18n="nav.home">Home</a></li>
-                <li><a href="/about/" data-i18n="nav.about">Sobre mí</a></li>
-                <li><a href="/assets/files/CV-German_Rosati_AM_ESP.pdf" target="_blank" data-i18n="nav.cv">CV</a></li>
-                <li><a href="/proyects/" data-i18n="nav.projects">Proyectos</a></li>
-                <li><a href="/classes/" data-i18n="nav.classes">Clases</a></li>
-                <li><a href="/talks/" data-i18n="nav.talks">Charlas</a></li>
-                <li><a href="/papers/" data-i18n="nav.papers">Publicaciones</a></li>
-                <li><a href="/poesia/" class="active" data-i18n="nav.poetry">Poesía</a></li>
-                <li><a href="https://medium.com/@german-rosati" target="_blank" data-i18n="nav.medium">Medium</a></li>
-                <li class="language-switcher">
-                    <span class="lang-option active" data-lang="es" onclick="setLanguage('es')">ES</span>
-                    <span class="lang-separator">|</span>
-                    <span class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</span>
-                </li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about/">Sobre mí</a></li>
+                <li><a href="/assets/files/CV-German_Rosati_AM_ESP.pdf" target="_blank">CV</a></li>
+                <li><a href="/proyects/">Proyectos</a></li>
+                <li><a href="/classes/">Clases</a></li>
+                <li><a href="/talks/">Charlas</a></li>
+                <li><a href="/papers/">Publicaciones</a></li>
+                <li><a href="/poesia/" class="active">Poesía</a></li>
+                <li><a href="https://medium.com/@german-rosati" target="_blank">Medium</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="page-header">
         <div class="breadcrumb">
-            <a href="/" data-i18n="nav.home">Home</a>
+            <a href="/">Home</a>
             <span>→</span>
-            <span data-i18n="nav.poetry">Poesía</span>
+            <span>Poesía</span>
         </div>
         <h1 class="page-title">Poesía</h1>
-        <p class="page-subtitle" data-i18n="poetry.subtitle">Poemarios y participaciones en antologías</p>
+        <p class="page-subtitle">Poemarios y participaciones en antologías</p>
     </header>
 
     <main class="main-content">
-        <div class="content-wrapper" id="poetryContent">
-            <!-- Content will be loaded by JavaScript -->
+        <div class="content-wrapper">
+            
+            <h2>Libros</h2>
+
+            <div class="book-card">
+                <img src="/assets/images/golpe.jpg" alt="Buscar el golpe" class="book-cover">
+                <div class="book-info">
+                    <div class="book-title">Buscar el golpe</div>
+                    <div class="book-meta">Ediciones del Dock, 2025</div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="/assets/images/boca.jpg" alt="Boca de tormenta" class="book-cover">
+                <div class="book-info">
+                    <div class="book-title">Boca de tormenta</div>
+                    <div class="book-meta">Huesos de Jibia, 2008</div>
+                </div>
+            </div>
+
+            <h2>Antologías</h2>
+
+            <div class="book-card">
+                <img src="/assets/images/hogar.jpg" alt="Hogar. Poemas sobre familias" class="book-cover">
+                <div class="book-info">
+                    <div class="book-title">Hogar. Poemas sobre familias</div>
+                    <div class="book-meta">Camalote, 2025</div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="/assets/images/fe.jpg" alt="Fe. 100 poemas sobre creencias" class="book-cover">
+                <div class="book-info">
+                    <div class="book-title">Fe. 100 poemas sobre creencias</div>
+                    <div class="book-meta">Camalote, 2024</div>
+                </div>
+            </div>
+
+            <div class="book-card">
+                <img src="/assets/images/famosos.jpg" alt="Poemas con famosos" class="book-cover">
+                <div class="book-info">
+                    <div class="book-title">Poemas con famosos</div>
+                    <div class="book-meta">Ananga Ranga, Resistencia, 2010 (compilado por Tony Salazar y Alejandro Raymond)</div>
+                </div>
+            </div>
+
         </div>
     </main>
 
@@ -65,6 +104,5 @@
     </footer>
 
     <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/poetry-i18n.js"></script>
 </body>
 </html>

@@ -366,52 +366,9 @@
             transition: var(--transition);
         }
 
-        /* Language Switcher */
-        .language-switcher {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            margin-left: 1rem;
-        }
-
-        .lang-option {
-            font-family: var(--font-mono);
-            font-size: 0.85rem;
-            color: var(--color-muted);
-            cursor: pointer;
-            padding: 0.25rem 0.5rem;
-            border-radius: 3px;
-            transition: var(--transition);
-            background: transparent;
-            border: 1px solid transparent;
-        }
-
-        .lang-option:hover {
-            color: var(--color-accent);
-            border-color: var(--color-accent);
-        }
-
-        .lang-option.active {
-            color: var(--color-accent);
-            background: rgba(180, 18, 27, 0.1);
-            border-color: var(--color-accent);
-        }
-
-        .lang-separator {
-            color: var(--color-border);
-            font-size: 0.85rem;
-        }
-
         @media (max-width: 768px) {
             .menu-toggle {
                 display: flex;
-            }
-
-            .language-switcher {
-                margin-left: 0;
-                padding: 1rem 0 0 0;
-                border-top: 1px solid var(--color-border);
-                justify-content: center;
             }
 
             .nav-links {
@@ -444,19 +401,14 @@
                 <span></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="/about/" data-i18n="nav.about">Sobre mí</a></li>
-                <li><a href="/assets/files/CV-German_Rosati_AM_ESP.pdf" target="_blank" data-i18n="nav.cv">CV</a></li>
-                <li><a href="/proyects/" data-i18n="nav.projects">Proyectos</a></li>
-                <li><a href="/classes/" data-i18n="nav.classes">Clases</a></li>
-                <li><a href="/talks/" data-i18n="nav.talks">Charlas</a></li>
-                <li><a href="/papers/" data-i18n="nav.papers">Papers</a></li>
-                <li><a href="/poesia/" data-i18n="nav.poetry">Poesía</a></li>
-                <li><a href="https://medium.com/@german-rosati" target="_blank" data-i18n="nav.medium">Medium</a></li>
-                <li class="language-switcher">
-                    <span class="lang-option active" data-lang="es" onclick="setLanguage('es')">ES</span>
-                    <span class="lang-separator">|</span>
-                    <span class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</span>
-                </li>
+                <li><a href="/about/">Sobre mí</a></li>
+                <li><a href="/assets/files/CV-German_Rosati_AM_ESP.pdf" target="_blank">CV</a></li>
+                <li><a href="/proyects/">Proyectos</a></li>
+                <li><a href="/classes/">Clases</a></li>
+                <li><a href="/talks/">Charlas</a></li>
+                <li><a href="/papers/">Papers</a></li>
+                <li><a href="/poesia/">Poesía</a></li>
+                <li><a href="https://medium.com/@german-rosati" target="_blank">Medium</a></li>
             </ul>
         </div>
     </nav>
@@ -465,7 +417,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-label">Data Sociologist</div>
-            <h1 class="hero-title">Germán Rosati</h1>
+            <h1>Germán Rosati</h1>
             <div class="hero-subtitle">Ciencias Sociales × Machine Learning × Métodos Cuantitativos</div>
             <p class="hero-description">
                 Investigador en la intersección de ciencias sociales y ciencia de datos. Especializado en métodos cuantitativos, 
@@ -582,14 +534,4 @@
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-    <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/index-i18n.js"></script>
-</body>
-</html>
+                        behav
