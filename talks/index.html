@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Charlas - Germán Rosati</title>
-    <meta name="description" content="Entrevistas, charlas y presentaciones sobre inteligencia artificial, ciencias sociales computacionales y análisis de datos">
+    <meta name="description" content="Entrevistas, charlas y presentaciones sobre inteligencia artificial y ciencias sociales computacionales">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
@@ -20,108 +20,37 @@
                 <span></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about/">Sobre mí</a></li>
-                <li><a href="/assets/files/CV-German_Rosati_AM_ESP.pdf" target="_blank">CV</a></li>
-                <li><a href="/proyects/">Proyectos</a></li>
-                <li><a href="/classes/">Clases</a></li>
-                <li><a href="/talks/" class="active">Charlas</a></li>
-                <li><a href="/papers/">Publicaciones</a></li>
-                <li><a href="/poesia/">Poesía</a></li>
-                <li><a href="https://medium.com/@german-rosati" target="_blank">Medium</a></li>
+                <li><a href="/" data-i18n="nav.home">Home</a></li>
+                <li><a href="/about/" data-i18n="nav.about">Sobre mí</a></li>
+                <li><a href="/assets/files/CV-German_Rosati_AM_ESP.pdf" target="_blank" data-i18n="nav.cv">CV</a></li>
+                <li><a href="/proyects/" data-i18n="nav.projects">Proyectos</a></li>
+                <li><a href="/classes/" data-i18n="nav.classes">Clases</a></li>
+                <li><a href="/talks/" class="active" data-i18n="nav.talks">Charlas</a></li>
+                <li><a href="/papers/" data-i18n="nav.papers">Publicaciones</a></li>
+                <li><a href="/poesia/" data-i18n="nav.poetry">Poesía</a></li>
+                <li><a href="https://medium.com/@german-rosati" target="_blank" data-i18n="nav.medium">Medium</a></li>
+                <li class="language-switcher">
+                    <span class="lang-option active" data-lang="es" onclick="setLanguage('es')">ES</span>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-option" data-lang="en" onclick="setLanguage('en')">EN</span>
+                </li>
             </ul>
         </div>
     </nav>
 
     <header class="page-header">
         <div class="breadcrumb">
-            <a href="/">Home</a>
+            <a href="/" data-i18n="nav.home">Home</a>
             <span>→</span>
-            <span>Charlas</span>
+            <span data-i18n="nav.talks">Charlas</span>
         </div>
         <h1 class="page-title">Charlas & Entrevistas</h1>
-        <p class="page-subtitle">Presentaciones, diálogos y entrevistas sobre inteligencia artificial y ciencias sociales computacionales</p>
+        <p class="page-subtitle" data-i18n="talks.subtitle">Presentaciones, diálogos y entrevistas sobre inteligencia artificial y ciencias sociales computacionales</p>
     </header>
 
     <main class="main-content">
-        <div class="content-wrapper">
-            
-            <h2>Entrevistas</h2>
-
-            <div class="course-item">
-                <div class="course-year">31-12-2024</div>
-                <div class="course-title">Entrevista sobre LLMs y ciencias sociales</div>
-                <div class="course-institution">Revista "Tramas Sociales", Universidad Nacional de San Juan</div>
-                <p style="margin-top: 1rem; margin-bottom: 0;">
-                    <a href="https://ojs.unsj.edu.ar/index.php/tramassociales/article/view/1260" target="_blank">→ Leer entrevista</a>
-                </p>
-            </div>
-
-            <div class="course-item">
-                <div class="course-year">13-05-2023</div>
-                <div class="course-title">Entrevista sobre Inteligencia Artificial</div>
-                <div class="course-institution">Diario Perfil</div>
-                <p style="margin-top: 1rem; margin-bottom: 0;">
-                    <a href="https://www.perfil.com/noticias/agenda-academica/german-rosati-no-es-productiva-la-distopia-que-se-ha-generado-en-torno-a-la-inteligencia-artificial.phtml" target="_blank">→ Leer entrevista</a>
-                </p>
-            </div>
-
-            <div class="course-item">
-                <div class="course-year">2022</div>
-                <div class="course-title">Diálogo sobre Inteligencia Artificial</div>
-                <div class="course-institution">Ciclo "Esto no es un tweet: 7 diálogos para pensar la Argentina" - elDiarioAR</div>
-                <p style="margin-top: 1rem; margin-bottom: 0;">
-                    <a href="https://www.youtube.com/watch?v=JYmhEMhYKD8&list=PLWVVz3EMZtTCfSx-6OrD9sdQnauJJt4qi&index=8&ab_channel=elDiarioAR" target="_blank">→ Ver diálogo</a>
-                </p>
-            </div>
-
-            <h2>Algunas charlas (últimos 5 años)</h2>
-
-            <div class="course-item">
-                <div class="course-year">15-10-2025</div>
-                <div class="course-title">Pensando con las máquinas. Modelos grandes de lenguaje e investigación en ciencias sociales</div>
-                <div class="course-institution">Programa Anual de Conferencias, INCIHUSA-CONICET</div>
-                <p style="margin-top: 1rem; margin-bottom: 0;">
-                    <a href="https://www.youtube.com/watch?v=2sA3GFr9JQ0" target="_blank">→ Ver video</a>
-                </p>
-            </div>
-
-            <div class="course-item">
-                <div class="course-year">30-10-2023</div>
-                <div class="course-title">Abordajes ágiles para el estudio de trayectorias de uso del suelo</div>
-                <div class="course-institution">Ateneo CID Economía Agraria, FCEyN, UBA</div>
-                <p style="margin-top: 1rem; margin-bottom: 0;">
-                    <a href="https://youtu.be/Wcjno1PL57Y?si=EF5mcmV-aYvrl9l1" target="_blank">→ Ver video</a>
-                </p>
-            </div>
-
-            <div class="course-item">
-                <div class="course-year">4-11-2022</div>
-                <div class="course-title">Frontera agraria, uso del suelo y deforestación. Datos y herramientas para un abordaje ágil</div>
-                <div class="course-institution">Seminario Big data y políticas públicas: desafíos y oportunidades, UDESA</div>
-                <p style="margin-top: 1rem; margin-bottom: 0;">
-                    <a href="https://www.youtube.com/live/h_3LcO5DnLM?si=8c1ZNDEinkSjH8mJ" target="_blank">→ Ver video</a>
-                </p>
-            </div>
-
-            <div class="course-item">
-                <div class="course-year">10-12-2020</div>
-                <div class="course-title">Los "temas" de la pandemia. Un análisis de los diálogos de lectores de medios nacionales</div>
-                <div class="course-institution">Seminario IC/ICC: La ciencia ante el COVID-19</div>
-                <p style="margin-top: 1rem; margin-bottom: 0;">
-                    <a href="https://www.youtube.com/watch?v=DTDkSEqgNlA" target="_blank">→ Ver video</a>
-                </p>
-            </div>
-
-            <div class="course-item">
-                <div class="course-year">08-06-2020</div>
-                <div class="course-title">Ciencias Sociales y Ciencia de Datos. Nuevas herramientas, problemas clásicos</div>
-                <div class="course-institution">Seminario General de IDAES, UNSAM</div>
-                <p style="margin-top: 1rem; margin-bottom: 0;">
-                    <a href="https://www.youtube.com/watch?v=7k8DrNsQIL4" target="_blank">→ Ver video</a>
-                </p>
-            </div>
-
+        <div class="content-wrapper" id="talksContent">
+            <!-- Content will be loaded by JavaScript -->
         </div>
     </main>
 
@@ -136,5 +65,6 @@
     </footer>
 
     <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/talks-i18n.js"></script>
 </body>
 </html>
