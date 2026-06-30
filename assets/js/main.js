@@ -7,10 +7,12 @@ function toggleMenu() {
 // Highlight active page in navigation
 document.addEventListener('DOMContentLoaded', function() {
     const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
+    const navLinks = document.querySelectorAll('.nav-links a:not(.lang-option)');
+
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
+        const linkPath = link.getAttribute('href');
+        if (linkPath === currentPath ||
+            (linkPath !== '/' && linkPath !== '/en/' && currentPath.startsWith(linkPath))) {
             link.classList.add('active');
         }
     });

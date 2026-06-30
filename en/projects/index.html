@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Germán Rosati</title>
+    <meta name="description" content="Research projects, interactive maps, web applications, and data analysis tools">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .project-thumbnail {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: var(--transition);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-thumbnail:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(180, 18, 27, 0.2);
+            border-color: var(--color-accent);
+        }
+
+        .project-thumbnail img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .project-thumbnail-content {
+            padding: 1.25rem;
+        }
+
+        .project-thumbnail-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .project-thumbnail-desc {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            line-height: 1.5;
+        }
+
+        .package-card {
+            background: var(--color-card);
+            border: 1px solid var(--color-border);
+            border-left: 4px solid var(--color-accent);
+            padding: 2rem;
+            margin: 2rem 0;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .package-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 8px 16px rgba(180, 18, 27, 0.2);
+        }
+
+        .package-logo {
+            flex-shrink: 0;
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+
+        .package-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .package-info p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            .package-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            .package-logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="/en/" class="nav-brand">GR</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/en/">Home</a></li>
+                <li><a href="/en/about/">About</a></li>
+                <li><a href="/assets/files/CV-German_Rosati_AM_ESP.pdf" target="_blank">CV</a></li>
+                <li><a href="/en/projects/" class="active">Projects</a></li>
+                <li><a href="/en/classes/">Classes</a></li>
+                <li><a href="/en/talks/">Talks</a></li>
+                <li><a href="/en/papers/">Papers</a></li>
+                <li><a href="/en/poetry/">Poetry</a></li>
+                <li><a href="https://medium.com/@german-rosati" target="_blank">Medium</a></li>
+                <li class="lang-switcher">
+                    <a href="/proyects/" class="lang-option">ES</a>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-option lang-active">EN</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="breadcrumb">
+            <a href="/en/">Home</a>
+            <span>→</span>
+            <span>Projects</span>
+        </div>
+        <h1 class="page-title">Projects</h1>
+        <p class="page-subtitle">Interactive maps, web applications, and data analysis tools</p>
+    </header>
+
+    <main class="main-content">
+        <div class="content-wrapper">
+
+            <h2>Agrarian Structure</h2>
+
+            <p>
+                These are maps covering various aspects of Argentine agrarian structure. They were produced as results of the research project
+                <em>Modes of agricultural frontier expansion, land use change, and impacts on agricultural labor demand.
+                Argentina, 1980–2016</em>, which I carry out as Adjunct Researcher at CONICET.
+                <a href="https://gefero.github.io/CONICET_mapas_soja/" target="_blank">In the repository</a> you can find the following maps
+                along with their methodological documentation.
+            </p>
+
+            <p>
+                Relationship between fires and agricultural frontier expansion: <a href="https://germanrosati.users.earthengine.app/view/fireslulc" target="_blank">this map</a>
+                allows visualizing two processes: 1) land use changes and 2) a typology of fire hotspots. It uses a swipe panel to
+                visualize both layers. Data were extracted from NASA fire hotspot information and ESA Climate Change Initiative LULC rasters.
+            </p>
+
+            <div class="project-grid">
+                <a href="https://gefero.github.io/CONICET_mapas_soja/maps/02_estructuras.html" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-macroestructuras.png" alt="Agrarian macrostructures">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Agrarian Macrostructures</div>
+                        <div class="project-thumbnail-desc">Argentina, 2002</div>
+                    </div>
+                </a>
+
+                <a href="https://gefero.github.io/CONICET_mapas_soja/maps/03_microestructuras.html" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-microestructuras.png" alt="Agrarian microstructures">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Agrarian Microstructures</div>
+                        <div class="project-thumbnail-desc">Argentina, circa 2018</div>
+                    </div>
+                </a>
+
+                <a href="https://gefero.github.io/CONICET_mapas_soja/maps/01_sust_soja_1.html" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-sustitucion.png" alt="Soy substitution zones">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Soy Substitution Zones</div>
+                        <div class="project-thumbnail-desc">Argentina, 1988–2002</div>
+                    </div>
+                </a>
+
+                <a href="https://gefero.github.io/CONICET_mapas_soja/maps/20220228_type_fires_pca_kmean_estr.html" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-focos.png" alt="Heat spots and agrarian structure">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Heat Spots and Agrarian Structure</div>
+                        <div class="project-thumbnail-desc">Spatial distribution 2001–2022</div>
+                    </div>
+                </a>
+
+                <a href="https://germanrosati.users.earthengine.app/view/fireslulc" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-incendios-lulc.png" alt="Fires and agricultural frontier expansion">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Fires and Agricultural Frontier Expansion</div>
+                        <div class="project-thumbnail-desc">Land use changes with swipe panel</div>
+                    </div>
+                </a>
+            </div>
+
+            <h2>Urban Accessibility in Argentine Cities (2018)</h2>
+
+            <p>
+                This is a <a href="https://acceso.shinyapps.io/mapa/_w_7921c43d7613439e90de2908b6bf5269/#tab-6187-2" target="_blank">high
+                spatial-resolution map</a> that quantifies walking-time access to various services (schools, health centers, food supply,
+                banks, and ATMs) for the 32 main urban agglomerations in Argentina.
+                It was built in collaboration with the Bunge and Born Foundation in the context of the COVID-19 pandemic in 2020. Some details of its construction
+                can be found in <a href="https://www.researchsquare.com/article/rs-10738/v1" target="_blank">this document</a>.
+            </p>
+
+            <div class="project-grid">
+                <a href="https://acceso.shinyapps.io/mapa/_w_7921c43d7613439e90de2908b6bf5269/#tab-6187-2" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/map-accesibilidad.png" alt="Urban accessibility map">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Urban Accessibility Map</div>
+                        <div class="project-thumbnail-desc">32 Argentine urban agglomerations</div>
+                    </div>
+                </a>
+            </div>
+
+            <h2>Color Palette Analyzer</h2>
+
+            <p>
+                Many important decisions go into building a data visualization. One of them — choosing a scale to map values to colors —
+                is far from trivial. Since scales act as a kind of "interface" between data and our brains, it is important to
+                choose a scale that does not unnecessarily distort that perception. This property is called "perceptual uniformity."
+            </p>
+
+            <p>
+                <a href="https://color-analyzer.streamlit.app/" target="_blank">This tool</a> analyzes color scales for perceptual
+                uniformity using the CIE Lab or CAM02-UCS color space. A perceptually uniform color scale should have relatively
+                constant ΔE values between consecutive colors.
+            </p>
+
+            <div class="project-grid">
+                <a href="https://color-analyzer.streamlit.app/" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/app-color.png" alt="Color palette analyzer">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Color Palette Analyzer</div>
+                        <div class="project-thumbnail-desc">Perceptual uniformity tool</div>
+                    </div>
+                </a>
+            </div>
+
+            <h2>Packages</h2>
+
+            <div class="package-card">
+                <img src="/assets/images/eph-logo.png" alt="EPH Package" class="package-logo">
+                <div class="package-info">
+                    <h3><a href="https://ropensci.github.io/eph/" target="_blank">eph package</a></h3>
+                    <p>
+                        I participated in developing the eph package, a toolbox to facilitate the processing of microdata from the
+                        EPH (Permanent Household Survey). The package plays a fundamental role in democratizing access to data published
+                        by INDEC, enabling independent conclusions beyond those published in official reports.
+                    </p>
+                    <p>
+                        Since EPH data is one of the main sources for analyzing social problems in Argentina, the package enables
+                        not only academic and journalistic research but also contributes to the formulation of evidence-based public policy.
+                    </p>
+                </div>
+            </div>
+
+            <h2>App inspired by "Martín Fierro ordenado alfabéticamente"</h2>
+
+            <p>
+                It is often said (rightly so) that the avant-garde is dead. However, there are texts and authors who seek to dialogue
+                with the ghost of the avant-garde (as Tabarobsky would say). One such text is "Martín Fierro ordenado alfabéticamente"
+                and one such author is Pablo Katchadjian: he takes the Martín Fierro (la ida) and rewrites it without adding anything —
+                he simply sorts the verses alphabetically and publishes it. The book is pure form. But not just linguistic form (which it
+                also is): it is pure procedure, pure artifact. And as such it is reproducible. What other texts could we sort
+                alphabetically? All gauchesque poetry, certainly. Epic poetry, given its length, seems quite suitable.
+            </p>
+
+            <p>
+                This <a href="https://vanguardia-alfabetica.streamlit.app/" target="_blank">app</a> seeks to make Katchadjian's procedure
+                replicable and scalable. It sorts the lines of poetic texts alphabetically. Text can be loaded from a URL, uploaded as a
+                file, or pasted directly.
+            </p>
+
+            <div class="project-grid">
+                <a href="https://vanguardia-alfabetica.streamlit.app/" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/app-vanguardia.png" alt="Alphabetical avant-garde">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">Alphabetical Avant-garde</div>
+                        <div class="project-thumbnail-desc">Alphabetical sorter for poetic texts</div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Germán Rosati · Data Sociologist</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://www.researchgate.net/profile/German_Rosati" target="_blank">ResearchGate</a> ·
+            <a href="https://german-rosati.medium.com/" target="_blank">Medium</a> ·
+            <a href="https://github.com/gefero" target="_blank">GitHub</a> ·
+            <a href="https://www.linkedin.com/in/germán-rosati-53637263" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>
