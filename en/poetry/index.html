@@ -13,7 +13,14 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="/en/" class="nav-brand">GR</a>
+            <div class="nav-brand-group">
+                <a href="/en/" class="nav-brand">GR</a>
+                <div class="lang-switcher">
+                    <a href="/poesia/" class="lang-option">ES</a>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-option lang-active">EN</span>
+                </div>
+            </div>
             <div class="menu-toggle" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -29,11 +36,6 @@
                 <li><a href="/en/papers/">Papers</a></li>
                 <li><a href="/en/poetry/" class="active">Poetry</a></li>
                 <li><a href="https://medium.com/@german-rosati" target="_blank">Medium</a></li>
-                <li class="lang-switcher">
-                    <a href="/poesia/" class="lang-option">ES</a>
-                    <span class="lang-divider">|</span>
-                    <span class="lang-option lang-active">EN</span>
-                </li>
             </ul>
         </div>
     </nav>
