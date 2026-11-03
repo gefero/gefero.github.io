@@ -254,6 +254,42 @@
                 </a>
             </div>
 
+            <h2>Word Embeddings in TensorFlow Projector</h2>
+
+            <p>
+                <a href="https://gefero.github.io/project_word_emebddings/" target="_blank">This exercise</a> lets you interactively explore
+                two word2vec embeddings (skip-gram with negative sampling, 300-dimensional vectors) in the
+                <a href="https://projector.tensorflow.org/" target="_blank">TensorFlow Embedding Projector</a>. word2vec learns to represent each
+                word as a vector based on the contexts in which it appears: words used in similar contexts end up with nearby vectors, which makes it
+                possible to measure similarities and even "do arithmetic" with meanings (<em>king − man + woman ≈ queen</em>).
+            </p>
+
+            <p>
+                The first one is the <em>Spanish Billion Words Corpus</em> embedding (SBWCE) by Cristian Cardellino, a corpus of nearly 1.5 billion
+                Spanish words, from which the 50,000 most frequent words are published. The second one was trained on about 150,000 dialogue lines
+                from roughly 600 episodes of The Simpsons (in English), with lemmatization and bigrams (<em>mr_burn</em>, <em>homer_simpson</em>), and
+                has 5,095 words. The <a href="https://github.com/gefero/project_word_emebddings" target="_blank">repository</a> also includes the script
+                that converts any gensim, word2vec or fastText embedding into the format accepted by the Projector.
+            </p>
+
+            <div class="project-grid">
+                <a href="https://projector.tensorflow.org/?config=https://raw.githubusercontent.com/gefero/project_word_emebddings/main/projector/SBW-vectors-300-min5_config.json" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/proj-embeddings-sbwce.png" alt="t-SNE projection of the SBWCE embedding">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">SBWCE Embedding (Spanish)</div>
+                        <div class="project-thumbnail-desc">50,000 most frequent words, in the Projector</div>
+                    </div>
+                </a>
+
+                <a href="https://projector.tensorflow.org/?config=https://raw.githubusercontent.com/gefero/project_word_emebddings/main/projector/w2v_simpsons_aligned_config.json" target="_blank" class="project-thumbnail">
+                    <img src="/assets/images/proj-embeddings-simpsons.png" alt="t-SNE projection of The Simpsons embedding">
+                    <div class="project-thumbnail-content">
+                        <div class="project-thumbnail-title">The Simpsons Embedding</div>
+                        <div class="project-thumbnail-desc">5,095 words from the show's dialogues</div>
+                    </div>
+                </a>
+            </div>
+
             <h2>Packages</h2>
 
             <div class="package-card">
